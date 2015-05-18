@@ -5,14 +5,8 @@
 
 <label>Name:</label> <h5>${user.name}</h5>
 <label>ID:</label> <h5>${user.id}</h5>
-<label>Password:</label> <h5>${user.password}</h5>
+<label>Password:</label> <h5>${user.password}</h5> 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal">
-  New Blog
-</button>
-
-<br/> <br/>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -26,13 +20,13 @@ $(document).ready(function() {
 	$(".blogForm").validate(
 			{
 				rules: {
-					name: {
+					title: {
 						required : true,
-						minlength : 3
+						minlength : 10
 					},
-					url: {
+					description: {
 						required : true,
-						url: true
+						minlength : 30
 					}	
 				},
 				highlight: function(element) {
@@ -48,19 +42,19 @@ $(document).ready(function() {
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-	<c:forEach items="${user.blogs}" var="blog">
-	  <li><a href="#blog_${blog.id}" data-toggle="tab"><c:out value="${blog.name}" /></a></li>
+	<c:forEach items="${user.questions}" var="question">
+	  <li><a href="#blog_${question.id}" data-toggle="tab"><c:out value="${question.title}" /></a></li>
 	</c:forEach>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-<c:forEach items="${user.blogs}" var="blog">
-  <div class="tab-pane" id="blog_${blog.id}">
-	<h1><c:out value="${blog.name}" /></h1>
+<c:forEach items="${user.questions}" var="question">
+  <div class="tab-pane" id="blog_${question.id}">
+	<h1><c:out value="${question.title}" /></h1>
 	<p>
-	<a href='<spring:url value="/blog/remove/${blog.id}.html" />' class="btn btn-danger triggerRemove">Remove Blog</a>
-	<c:out value="${blog.url}" /></p>
+	<a href='<spring:url value="/blog/remove/${question.id}.html" />' class="btn btn-danger triggerRemove">Remove Question</a>
+	<c:out value="${question.description}" /></p>
 
 	<table class="table table-bordered table-hover table-striped">
 		<thead>
@@ -70,21 +64,42 @@ $(document).ready(function() {
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${blog.items}" var="item">
+			<%-- <c:forEach items="${question.tags}" var="tag">
 				<tr>
-					<td><c:out value="${item.title}" /></td>
-					<td><c:out value="${item.link}" /></td>
+					<td><c:out value="${tag.id}" /></td>
+					<td><c:out value="${tag.name}" /></td>
 				</tr>
-			</c:forEach>
+			</c:forEach> --%>
 		</tbody>
 	</table>
   </div>
 </c:forEach>
 </div>
+ 
+ 
+  <form:form commandName="question" cssClass="form-horizontal blogForm">
+  			<div class="form-group">
+				<label for="title" class="col-sm-2 control-label">Title:</label>
+				<div class="col-sm-10">
+					<form:input path="title" cssClass="form-control"/>
+					<form:errors path="title"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Descrption:</label>
+				<div class="col-sm-10">
+					<form:textarea path="description" cssClass="form-control"/>
+					<form:errors path="description"/>
+				</div>
+			</div>
+			 <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <input type="submit" value="Save" class="btn btn-success">
+		      </div>
+  </form:form>
 
-
-
-<form:form commandName="blog" cssClass="form-horizontal blogForm">
+<%-- 
+ <form:form commandName="question" cssClass="form-horizontal blogForm">
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -95,17 +110,17 @@ $(document).ready(function() {
       </div>
       <div class="modal-body">
         	<div class="form-group">
-				<label for="name" class="col-sm-2 control-label">Blog Name:</label>
+				<label for="title" class="col-sm-2 control-label">Blog Name:</label>
 				<div class="col-sm-10">
-					<form:input path="name" cssClass="form-control"/>
-					<form:errors path="name"/>
+					<form:input path="title" cssClass="form-control"/>
+					<form:errors path="title"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="url" class="col-sm-2 control-label">URL:</label>
+				<label for="description" class="col-sm-2 control-label">Descrption:</label>
 				<div class="col-sm-10">
-					<form:input path="url" cssClass="form-control"/>
-					<form:errors path="url"/>
+					<form:input path="description" cssClass="form-control"/>
+					<form:errors path="description"/>
 				</div>
 			</div>
       </div>
@@ -117,7 +132,7 @@ $(document).ready(function() {
   </div>
 </div>
 </form:form>
-<br/>
+<br/> --%>
 
 <!-- Modal -->
 <div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

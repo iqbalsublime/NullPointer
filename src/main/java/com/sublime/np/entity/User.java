@@ -47,16 +47,16 @@ public class User {
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Question> questions;
 	
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private List<Answer> answers;
 	
-	public boolean isEnabled() {
-		return enabled;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	
-	
 
 	public String getName() {
 		return name;
@@ -64,14 +64,6 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
 	}
 
 	public String getEmail() {
@@ -90,11 +82,41 @@ public class User {
 		this.password = password;
 	}
 
-	public Integer getId() {
-		return id;
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
+	
+	
+	
+	
+	
 }

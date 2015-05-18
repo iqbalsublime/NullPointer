@@ -1,17 +1,18 @@
 package com.sublime.np.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.sublime.np.entity.Role;
+import com.sublime.np.entity.Question;
+import com.sublime.np.entity.Tag;
 import com.sublime.np.entity.User;
+import com.sublime.np.repository.QuestionRepository;
 import com.sublime.np.repository.RoleRepository;
+import com.sublime.np.repository.TagRepository;
 import com.sublime.np.repository.UserRepository;
 
 @Service
@@ -25,6 +26,12 @@ public class UserService {
 	@Autowired
 	private RoleRepository roleRepository;
 	
+	@Autowired
+	private QuestionRepository questionRepository;
+	
+	/*@Autowired
+	private TagRepository tagRepository;*/
+	
 	public List<User> findAll(){
 		return userRepository.findAll();
 	}
@@ -34,24 +41,23 @@ public class UserService {
 	}
 
 
-
-	public void save(User user) {
-		user.setEnabled(true);
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		user.setPassword(encoder.encode(user.getPassword()));
-		List<Role> roles = new ArrayList<Role>();
-		roles.add(roleRepository.findByName("ROLE_USER"));
-		user.setRoles(roles);
-		userRepository.save(user);
+	public User findOneWithQuestions(String name) {
+		User user = userRepository.findByName(name);
+		return findOneWithQuestion(user.getId());
+	}
+	
+	public User findOneWithQuestion(int id) {
+		User user = findOne(id);
+		List<Question> questions =  questionRepository.findByUser(user);
+		/*for (Question question : questions) {
+			List<Tag> tags = tagRepository.findByQuestion(question);
+			question.setTags(tags);
+		}*/
+		user.setQuestions(questions);
+		return user;
 	}
 
-
-	public void delete(int id) {
-		userRepository.delete(id);
-	}
-
-	public User findOne(String username) {
-		return userRepository.findByName(username);
-	}
+	
+	
 
 }

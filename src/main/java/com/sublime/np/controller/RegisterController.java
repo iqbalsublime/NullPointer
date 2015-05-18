@@ -31,7 +31,7 @@ public class RegisterController {
 		return "user-register";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
+	/*@RequestMapping(method=RequestMethod.POST)
 	public String doRegister(@Valid @ModelAttribute("user") User user, BindingResult result){
 		if(result.hasErrors()){
 			return "user-register";
@@ -45,6 +45,6 @@ public class RegisterController {
 	public String available(@RequestParam String username) {
 		Boolean available = userService.findOne(username) == null;
 		return available.toString();
-	}
+	}*/
 
 }

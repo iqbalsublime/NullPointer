@@ -22,9 +22,10 @@ public class Question {
 	@GeneratedValue
 	private Integer id;
 
-	@Size(min=1, message = "Title must be at lease 1 characters !" )
+	@Size(min=5, message = "Title must be at least 5 characters !" )
 	private String title;
 	
+	@Size(min=20, message = "Description must be at least 20 characters !" )
 	private String description;
 	
 	private int upVote;
@@ -44,5 +45,98 @@ public class Question {
 	@ManyToMany
 	@JoinTable
 	private List<Tag> tags;
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public int getUpVote() {
+		return upVote;
+	}
+
+
+	public void setUpVote(int upVote) {
+		this.upVote = upVote;
+	}
+
+
+	public int getDownVote() {
+		return downVote;
+	}
+
+
+	public void setDownVote(int downVote) {
+		this.downVote = downVote;
+	}
+
+
+	public Date getPublishedDate() {
+		return publishedDate;
+	}
+
+
+	public void setPublishedDate(Date publishedDate) {
+		this.publishedDate = publishedDate;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public List<Answer> getAnswer() {
+		return answer;
+	}
+
+
+	public void setAnswer(List<Answer> answer) {
+		this.answer = answer;
+	}
+
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+
+
 
 }
