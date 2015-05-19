@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
@@ -42,9 +40,12 @@ public class Question {
 	@OneToMany(mappedBy="question", cascade=CascadeType.REMOVE)
 	private List<Answer> answer;
 	
-	@ManyToMany
-	@JoinTable
-	private List<Tag> tags;
+/*	@ManyToOne
+	@JoinColumn(name="tag_id")
+	private Tag tag;
+	*/
+	
+	
 	
 	
 	public Integer getId() {
@@ -127,15 +128,15 @@ public class Question {
 	}
 
 
-	public List<Tag> getTags() {
-		return tags;
+	/*public Tag getTag() {
+		return tag;
 	}
 
 
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
+	public void setTag(Tag tag) {
+		this.tag = tag;
 	}
-
+*/
 
 
 
