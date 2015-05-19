@@ -1,6 +1,7 @@
 package com.sublime.np.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -27,9 +28,9 @@ public class InitDbService {
 	@Autowired
 	private UserRepository userRepository;
 	
-/*	@Autowired
-	private TagRepository tagRepository;*/
-	
+	/*@Autowired
+	private TagRepository tagRepository;
+	*/
 	@Autowired
 	private QuestionRepository questionRepository;
 
@@ -60,20 +61,27 @@ public class InitDbService {
 			/*
 			Tag tag1 = new Tag();
 			tag1.setName("Java");
-			Tag tag2 = new Tag();
-			tag2.setName("Javascript");
 			tagRepository.save(tag1);
+			Tag tag2 = new Tag();
+			tag2.setName("Java Script");
 			tagRepository.save(tag2);*/
+		
 			
 			Question question1 = new Question();
 			question1.setTitle("Null Pointer Exception problem");
-			question1.setDescription("My problem is blah blah.......................");
-			/*List<Tag> tags =new ArrayList<Tag>();
-			tags.add(tag1);
-			tags.add(tag2);
-			question1.setTags(tags);*/
+			question1.setDescription("My problem is blah blah......................gddgdddddddddddddddddddddddddddddddddddddddddddddddddd.");
 			question1.setUser(userAdmin);
+			question1.setPublishedDate(new Date());
+		//	question1.setTag(tag1);
 			questionRepository.save(question1);
+			
+			Question question2 = new Question();
+			question2.setTitle("SQL Exception");
+			question2.setDescription("My problem is blah blah...gdgdjkgjdkgkdjkgjkdjkgkdjkgjkdjkgjdkjkgjkdjkkddddddjdkgkdjkgkdjkgjkdjkjgkdjkgjkdjkgjdk....................");
+			question2.setUser(userAdmin);
+			question2.setPublishedDate(new Date());
+		//	question2.setTag(tag2);
+			questionRepository.save(question2);
 	
 
 		
