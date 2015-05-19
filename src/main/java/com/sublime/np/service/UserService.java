@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sublime.np.entity.Question;
-import com.sublime.np.entity.Tag;
 import com.sublime.np.entity.User;
 import com.sublime.np.repository.QuestionRepository;
 import com.sublime.np.repository.RoleRepository;
-import com.sublime.np.repository.TagRepository;
 import com.sublime.np.repository.UserRepository;
 
 @Service
@@ -29,8 +27,7 @@ public class UserService {
 	@Autowired
 	private QuestionRepository questionRepository;
 	
-	/*@Autowired
-	private TagRepository tagRepository;*/
+
 	
 	public List<User> findAll(){
 		return userRepository.findAll();
@@ -50,7 +47,7 @@ public class UserService {
 		User user = findOne(id);
 		List<Question> questions =  questionRepository.findByUser(user);
 		/*for (Question question : questions) {
-			List<Tag> tags = tagRepository.findByQuestion(question);
+			List<Tag> tags = tagService.findByQuestion(question);
 			question.setTags(tags);
 		}*/
 		user.setQuestions(questions);

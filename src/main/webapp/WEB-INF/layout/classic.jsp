@@ -38,7 +38,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<spring:url value="/" />">JBA</a>
+            <a class="navbar-brand" href="<spring:url value="/" />">NP Q/A</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -50,6 +50,9 @@
               <li  class="${current == 'register' ? 'active' : ''}"><a href='<spring:url value="/register.html" />'>Register</a></li>
               <security:authorize access="hasRole('ROLE_USER')">
 					<li  class="${current == 'account' ? 'active' : ''}"><a href='<spring:url value="/account.html" />'>My Account</a></li>
+			  </security:authorize>
+			  <security:authorize access="hasRole('ROLE_USER')">
+					<li  class="${current == 'newquestion' ? 'active' : ''}"><a href='<spring:url value="/newquestion.html" />'>Ask Question</a></li>
 			  </security:authorize>
               <security:authorize access="!isAuthenticated()">
                	 <li  class="${current == 'login' ? 'active' : ''}"><a href='<spring:url value="/login.html" />'>Login</a></li>

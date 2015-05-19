@@ -27,21 +27,21 @@ $(document).ready(function() {
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
-	<c:forEach items="${user.blogs}" var="blog">
-	  <li><a href="#blog_${blog.id}" data-toggle="tab"><c:out value="${blog.name}" /></a></li>
+	<c:forEach items="${user.questions}" var="question">
+	  <li><a href="#blog_${question.id}" data-toggle="tab"><c:out value="${question.title}" /></a></li>
 	</c:forEach>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-<c:forEach items="${user.blogs}" var="blog">
-  <div class="tab-pane" id="blog_${blog.id}">
-	<h1><c:out value="${blog.name}" /></h1>
+<c:forEach items="${user.questions}" var="question">
+  <div class="tab-pane" id="blog_${question.id}">
+	<h1><c:out value="${question.title}" /></h1>
 	<p>
-	<a href='<spring:url value="/blog/remove/${blog.id}.html" />' class="btn btn-danger triggerRemove">Remove Blog</a>
-	<c:out value="${blog.url}" /></p>
+	<%-- <a href='<spring:url value="/blog/remove/${question.id}.html" />' class="btn btn-danger triggerRemove">Remove Question</a> --%>
+	<c:out value="${question.title}" /></p>
 
-	<table class="table table-bordered table-hover table-striped">
+<%-- 	<table class="table table-bordered table-hover table-striped">
 		<thead>
 			<tr>
 				<th>Title</th>
@@ -49,14 +49,14 @@ $(document).ready(function() {
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${blog.items}" var="item">
+			<c:forEach items="${question.items}" var="item">
 				<tr>
-					<td><c:out value="${item.title}" /></td>
-					<td><c:out value="${item.link}" /></td>
+					<td><c:out value="${question.title}" /></td>
+					<td><c:out value="${question.link}" /></td>
 				</tr>
 			</c:forEach>
 		</tbody>
-	</table>
+	</table> --%>
   </div>
 </c:forEach>
 </div>

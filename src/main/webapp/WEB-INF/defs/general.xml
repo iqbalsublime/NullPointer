@@ -10,7 +10,7 @@
 	</definition>
 
 	<definition name="index" extends="common">
-		<put-attribute name="title" value="Java Blog Aggregator" />
+		<put-attribute name="title" value="Null Pointer" />
 		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
 		<put-attribute name="current" value="index" />
 	</definition>
@@ -43,6 +43,12 @@
 		<put-attribute name="title" value="User Login" />
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 		<put-attribute name="current" value="login" />
+	</definition>
+	
+	<definition name="newquestion" extends="common">
+		<put-attribute name="title" value="User Login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/new-question.jsp" />
+		<put-attribute name="current" value="newquestion" />
 	</definition>
   
   

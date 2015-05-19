@@ -18,7 +18,6 @@ import org.hibernate.validator.constraints.Email;
 import com.sublime.np.annotation.UniqueUsername;
 
 
-
 @Entity
 public class User {
 
@@ -113,10 +112,6 @@ public class User {
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
 	}
-
-	
-	
-	
 	
 	
 }
