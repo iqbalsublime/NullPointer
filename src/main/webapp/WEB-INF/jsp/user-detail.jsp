@@ -28,14 +28,14 @@ $(document).ready(function() {
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
 	<c:forEach items="${user.questions}" var="question">
-	  <li><a href="#blog_${question.id}" data-toggle="tab"><c:out value="${question.title}" /></a></li>
+	  <li><a href="#question_${question.id}" data-toggle="tab"><c:out value="${question.title}" /></a></li>
 	</c:forEach>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
 <c:forEach items="${user.questions}" var="question">
-  <div class="tab-pane" id="blog_${question.id}">
+  <div class="tab-pane" id="question_${question.id}">
 	<h1><c:out value="${question.title}" /></h1>
 	<p>
 	<%-- <a href='<spring:url value="/blog/remove/${question.id}.html" />' class="btn btn-danger triggerRemove">Remove Question</a> --%>

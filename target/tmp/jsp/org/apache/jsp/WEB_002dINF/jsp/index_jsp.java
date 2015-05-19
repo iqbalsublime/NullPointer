@@ -180,7 +180,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_url_0 = (org.springframework.web.servlet.tags.UrlTag) _jspx_tagPool_spring_url_value_nobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_url_0.setPageContext(_jspx_page_context);
     _jspx_th_spring_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_spring_url_0.setValue((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("/post/${question.id}.html", java.lang.String.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_spring_url_0.setValue((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("/question/${question.id}.html", java.lang.String.class, (PageContext)_jspx_page_context, null));
     int[] _jspx_push_body_count_spring_url_0 = new int[] { 0 };
     try {
       int _jspx_eval_spring_url_0 = _jspx_th_spring_url_0.doStartTag();

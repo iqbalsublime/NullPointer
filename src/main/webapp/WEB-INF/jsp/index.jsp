@@ -16,7 +16,7 @@
 			<tr>
 				<td> 
 					<strong>
-						<a href="<spring:url value="/post/${question.id}.html" />">
+						<a href="<spring:url value="/question/${question.id}.html" />">
 							<c:out value="${question.title}" />
 						</a> 
 					</strong>

@@ -37,6 +37,10 @@ public class QuestionService {
 		return questionRepository.findAll(new PageRequest(0, 8, Direction.DESC, "publishedDate")).getContent();
 	}
 
+	public Question findOne(int id) {
+		return questionRepository.findOne(id);
+	}
+
 
 
 }

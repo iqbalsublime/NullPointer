@@ -2,7 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp"%>
 
+	
+
   <form:form commandName="question" cssClass="form-horizontal blogForm">
+  
+			<%-- <c:if test="${param.success eq true}">
+				<div class="alert alert-success">Question posted successfull!</div>
+			</c:if> --%>
+			
   			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">Title:</label>
 				<div class="col-sm-10">
