@@ -13,9 +13,11 @@ import org.springframework.stereotype.Service;
 
 import com.sublime.np.entity.Question;
 import com.sublime.np.entity.Role;
+import com.sublime.np.entity.Tag;
 import com.sublime.np.entity.User;
 import com.sublime.np.repository.QuestionRepository;
 import com.sublime.np.repository.RoleRepository;
+import com.sublime.np.repository.TagRepository;
 import com.sublime.np.repository.UserRepository;
 
 @Transactional
@@ -28,9 +30,9 @@ public class InitDbService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	/*@Autowired
+	@Autowired
 	private TagRepository tagRepository;
-	*/
+	
 	@Autowired
 	private QuestionRepository questionRepository;
 
@@ -58,13 +60,13 @@ public class InitDbService {
 			roles.add(roleUser);
 			userAdmin.setRoles(roles);
 			userRepository.save(userAdmin);
-			/*
+			
 			Tag tag1 = new Tag();
 			tag1.setName("Java");
 			tagRepository.save(tag1);
 			Tag tag2 = new Tag();
 			tag2.setName("Java Script");
-			tagRepository.save(tag2);*/
+			tagRepository.save(tag2);
 		
 			
 			Question question1 = new Question();
