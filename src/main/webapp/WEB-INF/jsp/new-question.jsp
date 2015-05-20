@@ -6,9 +6,9 @@
 
   <form:form commandName="question" cssClass="form-horizontal blogForm">
   
-			<%-- <c:if test="${param.success eq true}">
+		    <c:if test="${param.success eq true}">
 				<div class="alert alert-success">Question posted successfull!</div>
-			</c:if> --%>
+			</c:if> 
 			
   			<div class="form-group">
 				<label for="title" class="col-sm-2 control-label">Title:</label>
@@ -22,6 +22,18 @@
 				<div class="col-sm-10">
 					<form:textarea path="description" cssClass="form-control" />
 					<form:errors path="description"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="tag" class="col-sm-2 control-label">Tag:</label>
+				<div class="col-sm-10">
+					<form:select path="tag.id" class="form-control required">
+						<option value="" label="--- Select Tag ---" />
+						<c:forEach var="tag" items="${tags}">
+							<option value="${tag.id}">
+								${tag.name}</option>
+						</c:forEach>
+					</form:select>
 				</div>
 			</div>
 			 <div class="modal-footer">
