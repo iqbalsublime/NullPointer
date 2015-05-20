@@ -17,7 +17,10 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_input_path_cssClass_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_textarea_path_cssClass_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_select_path_class;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_errors_path_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_form_cssClass_commandName;
 
@@ -29,14 +32,20 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
 
   public void _jspInit() {
     _jspx_tagPool_form_input_path_cssClass_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_textarea_path_cssClass_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_form_select_path_class = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_errors_path_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_form_cssClass_commandName = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_form_input_path_cssClass_nobody.release();
+    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_form_textarea_path_cssClass_nobody.release();
+    _jspx_tagPool_c_if_test.release();
+    _jspx_tagPool_form_select_path_class.release();
     _jspx_tagPool_form_errors_path_nobody.release();
     _jspx_tagPool_form_form_cssClass_commandName.release();
   }
@@ -90,8 +99,10 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
           do {
             out.write("\r\n");
             out.write("  \r\n");
-            out.write("\t\t\t");
-            out.write("\r\n");
+            out.write("\t\t    ");
+            if (_jspx_meth_c_if_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
+              return;
+            out.write(" \r\n");
             out.write("\t\t\t\r\n");
             out.write("  \t\t\t<div class=\"form-group\">\r\n");
             out.write("\t\t\t\t<label for=\"title\" class=\"col-sm-2 control-label\">Title:</label>\r\n");
@@ -153,6 +164,15 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
             out.write("\r\n");
             out.write("\t\t\t\t</div>\r\n");
             out.write("\t\t\t</div>\r\n");
+            out.write("\t\t\t<div class=\"form-group\">\r\n");
+            out.write("\t\t\t\t<label for=\"tag\" class=\"col-sm-2 control-label\">Tag:</label>\r\n");
+            out.write("\t\t\t\t<div class=\"col-sm-10\">\r\n");
+            out.write("\t\t\t\t\t");
+            if (_jspx_meth_form_select_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
+              return;
+            out.write("\r\n");
+            out.write("\t\t\t\t</div>\r\n");
+            out.write("\t\t\t</div>\r\n");
             out.write("\t\t\t <div class=\"modal-footer\">\r\n");
             out.write("\t\t      <!--   <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button> -->\r\n");
             out.write("\t\t        <input type=\"submit\" value=\"Save\" class=\"btn btn-success\">\r\n");
@@ -187,6 +207,34 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_if_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.success eq true}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("\t\t\t\t<div class=\"alert alert-success\">Question posted successfull!</div>\r\n");
+        out.write("\t\t\t");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
   }
 
   private boolean _jspx_meth_form_input_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
@@ -239,6 +287,89 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
     } finally {
       _jspx_th_form_textarea_0.doFinally();
       _jspx_tagPool_form_textarea_path_cssClass_nobody.reuse(_jspx_th_form_textarea_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_form_select_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:select
+    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_select_0 = (org.springframework.web.servlet.tags.form.SelectTag) _jspx_tagPool_form_select_path_class.get(org.springframework.web.servlet.tags.form.SelectTag.class);
+    _jspx_th_form_select_0.setPageContext(_jspx_page_context);
+    _jspx_th_form_select_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
+    _jspx_th_form_select_0.setPath("tag.id");
+    _jspx_th_form_select_0.setDynamicAttribute(null, "class", new String("form-control required"));
+    int[] _jspx_push_body_count_form_select_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_select_0 = _jspx_th_form_select_0.doStartTag();
+      if (_jspx_eval_form_select_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("\t\t\t\t\t\t<option value=\"\" label=\"--- Select Tag ---\" />\r\n");
+          out.write("\t\t\t\t\t\t");
+          if (_jspx_meth_c_forEach_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_select_0, _jspx_page_context, _jspx_push_body_count_form_select_0))
+            return true;
+          out.write("\r\n");
+          out.write("\t\t\t\t\t");
+          int evalDoAfterBody = _jspx_th_form_select_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_form_select_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_select_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_select_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_select_0.doFinally();
+      _jspx_tagPool_form_select_path_class.reuse(_jspx_th_form_select_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_select_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_select_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_select_0);
+    _jspx_th_c_forEach_0.setVar("tag");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tags}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("\t\t\t\t\t\t\t<option value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tag.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("\t\t\t\t\t\t\t\t");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${tag.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</option>\r\n");
+          out.write("\t\t\t\t\t\t");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
     return false;
   }

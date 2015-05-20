@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Answer {
@@ -18,6 +19,7 @@ public class Answer {
 	
 	private String title;
 
+	@Size(min=10, message = "Your answer must be at lease 10 characters !" )
 	private String description;
 	
 	@Column(name = "published_date")

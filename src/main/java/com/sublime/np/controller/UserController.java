@@ -9,11 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sublime.np.entity.Answer;
 import com.sublime.np.entity.Question;
 import com.sublime.np.service.QuestionService;
+import com.sublime.np.service.TagService;
 import com.sublime.np.service.UserService;
 
 @Controller
@@ -25,10 +28,15 @@ public class UserController {
 	@Autowired
 	private QuestionService questionService;
 	
+	@Autowired
+	private TagService tagService;
+	
 	@ModelAttribute("question")
-	public Question constructBlog(){
+	public Question constructQuestion(){
 		return new Question();
 	}
+	
+	
 	
 	@RequestMapping("/account")
 	public String account(Model model, Principal principal){
@@ -39,7 +47,7 @@ public class UserController {
 	
 	@RequestMapping("/newquestion")
 	public String newquestion(Model model, Principal principal){
-		
+		model.addAttribute("tags", tagService.findAll());
 		return "newquestion";
 	}
 	
@@ -50,7 +58,13 @@ public class UserController {
 		}
 		String name = principal.getName();
 		questionService.save(question, name);
-		return "redirect:/newquestion.html";
+		return "redirect:/newquestion.html?success=true";
+	}
+	
+	@RequestMapping("/tag/{id}")
+	public String tagDetails(Model model, @PathVariable int id){
+		model.addAttribute("tag", tagService.findOne(id));
+		return "tag-detail";
 	}
 	
 	

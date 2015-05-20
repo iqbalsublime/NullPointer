@@ -105,7 +105,7 @@ public final class classic_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <a class=\"navbar-brand\" href=\"");
       if (_jspx_meth_spring_url_0(_jspx_page_context))
         return;
-      out.write("\">NP Q/A</a>\r\n");
+      out.write("\">Null Pointer</a>\r\n");
       out.write("          </div>\r\n");
       out.write("          <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n");
       out.write("            <ul class=\"nav navbar-nav\">\r\n");

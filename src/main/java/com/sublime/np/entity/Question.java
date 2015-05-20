@@ -38,12 +38,12 @@ public class Question {
 	private User user;
 	
 	@OneToMany(mappedBy="question", cascade=CascadeType.REMOVE)
-	private List<Answer> answer;
+	private List<Answer> answers;
 	
-/*	@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="tag_id")
 	private Tag tag;
-	*/
+	
 	
 	
 	
@@ -118,17 +118,17 @@ public class Question {
 	}
 
 
-	public List<Answer> getAnswer() {
-		return answer;
+	public List<Answer> getAnswers() {
+		return answers;
 	}
 
 
-	public void setAnswer(List<Answer> answer) {
-		this.answer = answer;
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
 	}
 
 
-	/*public Tag getTag() {
+	public Tag getTag() {
 		return tag;
 	}
 
@@ -136,7 +136,9 @@ public class Question {
 	public void setTag(Tag tag) {
 		this.tag = tag;
 	}
-*/
+
+
+	
 
 
 
