@@ -1,8 +1,13 @@
 package com.sublime.np.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Tag {
@@ -15,8 +20,8 @@ public class Tag {
 	
 	private int total;
 
-/*	@OneToMany(mappedBy="tag", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
-	private List<Question> questions;*/
+	@OneToMany(mappedBy="tag", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private List<Question> questions;
 
 	public Integer getId() {
 		return id;
@@ -42,12 +47,14 @@ public class Tag {
 		this.total = total;
 	}
 
-	/*public List<Question> getQuestions() {
+	public List<Question> getQuestions() {
 		return questions;
 	}
 
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-*/
+
+	
+
 }
