@@ -18,34 +18,28 @@ No Question for this Tag!
 </c:if> 	
 
 <c:if test="${not empty tag.questions}">		
-	Question
+	<br/>
+	<label>Questions</label>
 	<c:forEach items="${tag.questions}" var="question">
 		<div class="container">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<h3 class="panel-title">
+					<div class="page-header">
+						<h3>
+							<a href="<spring:url value="/question/${question.id}.html" />">
 								<c:out value="${question.title}" />
-							</h3>
-						</div>
-						<div class="panel-body">
-							<c:out value="${question.description}" />
-						</div>
-						<div class="panel-footer">
-							<div class="row">
-					On  <fmt:formatDate type="both" value="${question.publishedDate}"  dateStyle="short" timeStyle="short" /> by
-						 <span class="label label-info">
-							 <a href="<spring:url value="/users/${question.user.id}.html" />">
-								<c:out value="${question.user.name}" />
-							 </a>
-						 </span> 
-					</div>
-						</div>
+							</a> 
+							<div>
+								<small>On <c:out value="${question.publishedDate}" /> By <c:out value="${question.user.name}" /> </small>
+							</div>
+						</h3>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</c:forEach>
 </c:if> 
+
+
 
