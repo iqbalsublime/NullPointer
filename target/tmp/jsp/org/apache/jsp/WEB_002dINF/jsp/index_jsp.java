@@ -72,6 +72,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<h1>Latest Questions</h1>\r\n");

@@ -139,8 +139,6 @@ public final class classic_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\r\n");
       out.write("              ");
-      if (_jspx_meth_security_authorize_4(_jspx_page_context))
-        return;
       out.write("\r\n");
       out.write("              \r\n");
       out.write("              \r\n");
@@ -157,7 +155,10 @@ public final class classic_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                  <li class=\"divider\"></li>\r\n");
       out.write("                  <li class=\"dropdown-header\">Nav header</li>\r\n");
       out.write("                  <li><a href=\"#\">Separated link</a></li>\r\n");
-      out.write("                  <li><a href=\"#\">Logout</a></li>\r\n");
+      out.write("                  ");
+      if (_jspx_meth_security_authorize_4(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                </ul>\r\n");
       out.write("              </li>\r\n");
       out.write("              \r\n");
@@ -519,7 +520,7 @@ public final class classic_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_spring_url_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_security_authorize_4, _jspx_page_context))
         return true;
       out.write("'>Logout</a></li>\r\n");
-      out.write("              ");
+      out.write("              \t ");
     }
     if (_jspx_th_security_authorize_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_security_authorize_access.reuse(_jspx_th_security_authorize_4);

@@ -57,9 +57,9 @@
               <security:authorize access="!isAuthenticated()">
                	 <li  class="${current == 'login' ? 'active' : ''}"><a href='<spring:url value="/login.html" />'>Login</a></li>
               </security:authorize>
-              <security:authorize access="isAuthenticated()">
+              <%-- <security:authorize access="isAuthenticated()">
 					<li ><a href='<spring:url value="/logout" />'>Logout</a></li>
-              </security:authorize>
+              </security:authorize> --%>
               
               
               
@@ -75,7 +75,9 @@
                   <li class="divider"></li>
                   <li class="dropdown-header">Nav header</li>
                   <li><a href="#">Separated link</a></li>
-                  <li><a href="#">Logout</a></li>
+                  <security:authorize access="isAuthenticated()">
+					<li ><a href='<spring:url value="/logout" />'>Logout</a></li>
+              	 </security:authorize>
                 </ul>
               </li>
               
