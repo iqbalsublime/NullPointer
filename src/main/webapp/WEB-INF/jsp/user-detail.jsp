@@ -2,15 +2,52 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp"%>
 
-<h1>Details of <c:out value="${user.name}" /></h1>
-
-<label>Name:</label> <h5>${user.name}</h5>
-<label>ID:</label> <h5>${user.id}</h5>
-<label>Password:</label> <h5>${user.password}</h5>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Details of <c:out value="${user.name}" />
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="container">
+						<div class="row clearfix">
+							<div class="col-md-12 column">
+								<div class="row clearfix">
+									<div class="col-md-2 column">
+										<label>Name:</label>
+									</div>
+									<div class="col-md-6 column">
+										<h5>${user.name}</h5>
+									</div>
+									
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-2 column">
+										<label>ID:</label>
+									</div>
+									<div class="col-md-6 column">
+										<h5>${user.id}</h5>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
 <br/> <br/>
+
+
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -25,43 +62,93 @@ $(document).ready(function() {
 });
 </script>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-	<c:forEach items="${user.questions}" var="question">
-	  <li><a href="#question_${question.id}" data-toggle="tab"><c:out value="${question.title}" /></a></li>
-	</c:forEach>
-</ul>
 
-<!-- Tab panes -->
-<div class="tab-content">
-<c:forEach items="${user.questions}" var="question">
-  <div class="tab-pane" id="question_${question.id}">
-	<h1><c:out value="${question.title}" /></h1>
-	<p>
-	<%-- <a href='<spring:url value="/blog/remove/${question.id}.html" />' class="btn btn-danger triggerRemove">Remove Question</a> --%>
-	<c:out value="${question.title}" /></p>
 
-<%-- 	<table class="table table-bordered table-hover table-striped">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Link</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${question.items}" var="item">
-				<tr>
-					<td><c:out value="${question.title}" /></td>
-					<td><c:out value="${question.link}" /></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table> --%>
-  </div>
-</c:forEach>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-6 column">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<c:if test="${empty user.questions}">
+									There is no question of this user
+								</c:if>
+								<c:if test="${not empty user.questions}">
+									Questions
+								</c:if>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<c:forEach items="${user.questions}" var="question">
+								<div class="container">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a href="<spring:url value="/question/${question.id}.html" />">
+														<c:out value="${question.title}" />
+													</a> 
+													<div>
+														<small>On <c:out value="${question.publishedDate}" />  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-6 column">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<c:if test="${empty user.answers}">
+									There is no answer of this user
+								</c:if>
+								<c:if test="${not empty user.answers}">
+									Answers
+								</c:if>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<c:forEach items="${user.answers}" var="answer">
+								<div class="container">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a href="<spring:url value="/question/${answer.question.id}.html" />">
+														<c:out value="${answer.question.title}" />
+													</a> 
+													<div>
+														<c:set var="des" value="${fn:substring(answer.description, 0, 30)}" />
+														<small><c:out value="${des}" /> ... </small>
+														
+													</div>
+													<div>
+														<small>On <c:out value="${answer.publishedDate}" />  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-
 
 
 <!-- Modal -->
