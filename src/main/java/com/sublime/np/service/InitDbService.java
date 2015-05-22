@@ -74,7 +74,7 @@ public class InitDbService {
 			question1.setDescription("My problem is blah blah......................gddgdddddddddddddddddddddddddddddddddddddddddddddddddd.");
 			question1.setUser(userAdmin);
 			question1.setPublishedDate(new Date());
-		//	question1.setTag(tag1);
+			question1.setTag(tag1);
 			questionRepository.save(question1);
 			
 			Question question2 = new Question();
@@ -82,7 +82,7 @@ public class InitDbService {
 			question2.setDescription("My problem is blah blah...gdgdjkgjdkgkdjkgjkdjkgkdjkgjkdjkgjdkjkgjkdjkkddddddjdkgkdjkgkdjkgjkdjkjgkdjkgjkdjkgjdk....................");
 			question2.setUser(userAdmin);
 			question2.setPublishedDate(new Date());
-		//	question2.setTag(tag2);
+			question2.setTag(tag2);
 			questionRepository.save(question2);
 	
 
