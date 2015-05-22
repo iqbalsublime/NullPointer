@@ -1,5 +1,6 @@
 package com.sublime.np.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.sublime.np.entity.Answer;
 import com.sublime.np.entity.Question;
+import com.sublime.np.entity.Role;
 import com.sublime.np.entity.User;
 import com.sublime.np.repository.AnswerRepository;
 import com.sublime.np.repository.QuestionRepository;
@@ -62,8 +64,13 @@ public class UserService {
 	}
 
 	public void save(User user) {
+		user.setEnabled(true);
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		user.setPassword(encoder.encode(user.getPassword()));
+
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(roleRepository.findByName("ROLE_USER"));
+		user.setRoles(roles);
 		userRepository.save(user);
 	}
 

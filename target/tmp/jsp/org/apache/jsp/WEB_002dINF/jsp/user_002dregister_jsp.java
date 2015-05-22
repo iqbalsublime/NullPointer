@@ -78,6 +78,7 @@ public final class user_002dregister_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("\r\n");
       out.write("\r\n");
       //  form:form
