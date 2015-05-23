@@ -2,10 +2,76 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp"%>
 
+<script>
+var mainApp = angular.module("mainApp", []);
 
-<label>Name:</label> <h5>${user.name}</h5>
-<label>ID:</label> <h5>${user.id}</h5>
-<label>Password:</label> <h5>${user.password}</h5> 
+mainApp.controller('studentController', function($scope) {
+   $scope.student = {
+      firstName: "Mahesh",
+      lastName: "Parashar",
+      fullName: function() {
+         var studentObject;
+         studentObject = $scope.student;
+         return studentObject.firstName + " " + studentObject.lastName;
+      }
+   };
+});
+</script>
+
+<div ng-app="mainApp" ng-controller="studentController">
+
+Enter first name: <input type="text" ng-model="student.firstName"><br><br>
+Enter last name: <input type="text" ng-model="student.lastName"><br>
+<br>
+You are entering: {{student.fullName()}}
+</div>
+
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						My Account 
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="container">
+						<div class="row clearfix">
+							<div class="col-md-12 column">
+								<div class="row clearfix">
+									<div class="col-md-2 column">
+										<label>Name:</label>
+									</div>
+									<div class="col-md-6 column">
+										<h5>${user.name}</h5>
+									</div>
+									
+								</div>
+								<div class="row clearfix">
+									<div class="col-md-2 column">
+										<label>ID:</label>
+									</div>
+									<div class="col-md-6 column">
+										<h5>${user.id}</h5>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<br/> <br/>
+
 
 
 <script type="text/javascript">
@@ -17,122 +83,100 @@ $(document).ready(function() {
 		$("#modalRemove").modal();
 	});
 	
-	$(".blogForm").validate(
-			{
-				rules: {
-					title: {
-						required : true,
-						minlength : 10
-					},
-					description: {
-						required : true,
-						minlength : 30
-					}	
-				},
-				highlight: function(element) {
-					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-				},
-				unhighlight: function(element) {
-					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-				}
-			}
-		);
+	
 });
 </script>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-	<c:forEach items="${user.questions}" var="question">
-	  <li><a href="#blog_${question.id}" data-toggle="tab"><c:out value="${question.title}" /></a></li>
-	</c:forEach>
-</ul>
 
-<!-- Tab panes -->
-<div class="tab-content">
-<c:forEach items="${user.questions}" var="question">
-  <div class="tab-pane" id="blog_${question.id}">
-	<h1><c:out value="${question.title}" /></h1>
-	<p>
-	<a href='<spring:url value="/blog/remove/${question.id}.html" />' class="btn btn-danger triggerRemove">Remove Question</a>
-	<c:out value="${question.description}" /></p>
 
-	<table class="table table-bordered table-hover table-striped">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Link</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%-- <c:forEach items="${question.tags}" var="tag">
-				<tr>
-					<td><c:out value="${tag.id}" /></td>
-					<td><c:out value="${tag.name}" /></td>
-				</tr>
-			</c:forEach> --%>
-		</tbody>
-	</table>
-  </div>
-</c:forEach>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-6 column">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<c:if test="${empty user.questions}">
+									There is no question of this user
+								</c:if>
+								<c:if test="${not empty user.questions}">
+									Questions
+								</c:if>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<c:forEach items="${user.questions}" var="question">
+								<div class="container">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a href="<spring:url value="/question/${question.id}.html" />">
+														<c:set var="quesTitle" value="${fn:substring(question.title, 0, 30)}" />
+														<c:out value="${quesTitle}" />..
+													</a> 
+													<div>
+														<small>On <c:out value="${question.publishedDate}" />  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-6 column">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<c:if test="${empty user.answers}">
+									There is no answer of this user
+								</c:if>
+								<c:if test="${not empty user.answers}">
+									Answers
+								</c:if>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<c:forEach items="${user.answers}" var="answer">
+								<div class="container">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a href="<spring:url value="/question/${answer.question.id}.html" />">
+														<c:set var="ansTitle" value="${fn:substring(answer.question.title, 0, 30)}" />
+														<c:out value="${ansTitle}" />..
+													</a> 
+													<div>
+														<c:set var="des" value="${fn:substring(answer.description, 0, 30)}" />
+														<small><c:out value="${des}" /> ... </small>
+														
+													</div>
+													<div>
+														<small>On <c:out value="${answer.publishedDate}" />  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
- 
- 
-  <form:form commandName="question" cssClass="form-horizontal blogForm">
-  			<div class="form-group">
-				<label for="title" class="col-sm-2 control-label">Title:</label>
-				<div class="col-sm-10">
-					<form:input path="title" cssClass="form-control"/>
-					<form:errors path="title"/>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="description" class="col-sm-2 control-label">Descrption:</label>
-				<div class="col-sm-10">
-					<form:textarea path="description" cssClass="form-control"/>
-					<form:errors path="description"/>
-				</div>
-			</div>
-			 <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <input type="submit" value="Save" class="btn btn-success">
-		      </div>
-  </form:form>
 
-<%-- 
- <form:form commandName="question" cssClass="form-horizontal blogForm">
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add New Blog</h4>
-      </div>
-      <div class="modal-body">
-        	<div class="form-group">
-				<label for="title" class="col-sm-2 control-label">Blog Name:</label>
-				<div class="col-sm-10">
-					<form:input path="title" cssClass="form-control"/>
-					<form:errors path="title"/>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="description" class="col-sm-2 control-label">Descrption:</label>
-				<div class="col-sm-10">
-					<form:input path="description" cssClass="form-control"/>
-					<form:errors path="description"/>
-				</div>
-			</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <input type="submit" value="Save" class="btn btn-success">
-      </div>
-    </div>
-  </div>
-</div>
-</form:form>
-<br/> --%>
 
 <!-- Modal -->
 <div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -68,6 +68,8 @@ public final class classic_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\r\n");
       out.write("\r\n");
+      out.write("<script src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("<script src=\"http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js\"></script>\r\n");
       out.write("\r\n");
       out.write("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\r\n");
