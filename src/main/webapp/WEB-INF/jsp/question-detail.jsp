@@ -38,6 +38,28 @@
 		</div>
 	</div>
 </div>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">			 	
+						<div class="col-md-2 column">
+						
+						</div>
+						
+							<div class="col-md-10 column">
+								<ul>
+									<c:forEach items="${question.comments}" var="comment">
+										<li style="border: medium; border-color: black;">
+											<c:out value="${comment.commentText}" />
+										</li>
+									</c:forEach>
+								</ul>
+							</div>
+						
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="container">
 	<div class="row clearfix">
@@ -145,7 +167,7 @@ $(document).ready(function() {
 				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
 			}
 		}
-		}
+	}
 	);
 });
 </script>
