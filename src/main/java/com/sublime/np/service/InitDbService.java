@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.sublime.np.entity.Comment;
 import com.sublime.np.entity.Question;
 import com.sublime.np.entity.Role;
 import com.sublime.np.entity.Tag;
 import com.sublime.np.entity.User;
+import com.sublime.np.repository.CommentRepository;
 import com.sublime.np.repository.QuestionRepository;
 import com.sublime.np.repository.RoleRepository;
 import com.sublime.np.repository.TagRepository;
@@ -35,6 +37,10 @@ public class InitDbService {
 	
 	@Autowired
 	private QuestionRepository questionRepository;
+	
+	@Autowired
+	private CommentRepository commentRepository;
+
 
 
 	
@@ -67,6 +73,7 @@ public class InitDbService {
 			Tag tag2 = new Tag();
 			tag2.setName("Java Script");
 			tagRepository.save(tag2);
+			
 		
 			
 			Question question1 = new Question();
@@ -84,7 +91,21 @@ public class InitDbService {
 			question2.setPublishedDate(new Date());
 			question2.setTag(tag2);
 			questionRepository.save(question2);
-	
+			
+
+			Comment comment1 = new Comment();
+			comment1.setCommentText("Hello");
+			comment1.setPublishedDate(new Date());
+			comment1.setUser(userAdmin);
+			comment1.setQuestion(question1);
+			
+			Comment comment2 = new Comment();
+			comment2.setCommentText("Hello......");
+			comment2.setPublishedDate(new Date());
+			comment2.setUser(userAdmin);
+			comment2.setQuestion(question1);
+			commentRepository.save(comment1);
+			commentRepository.save(comment2);
 
 		
 	}
