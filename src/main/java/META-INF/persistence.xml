@@ -6,5 +6,6 @@
 		<class>com.sublime.np.entity.Question</class>
 		<class>com.sublime.np.entity.Answer</class>
 		<class>com.sublime.np.entity.Tag</class>
+		<class>com.sublime.np.entity.Comment</class>
 	</persistence-unit>
 </persistence>
