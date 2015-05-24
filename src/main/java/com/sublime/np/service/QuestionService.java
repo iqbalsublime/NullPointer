@@ -11,10 +11,12 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.sublime.np.entity.Answer;
+import com.sublime.np.entity.Comment;
 import com.sublime.np.entity.Question;
 import com.sublime.np.entity.Tag;
 import com.sublime.np.entity.User;
 import com.sublime.np.repository.AnswerRepository;
+import com.sublime.np.repository.CommentRepository;
 import com.sublime.np.repository.QuestionRepository;
 import com.sublime.np.repository.TagRepository;
 import com.sublime.np.repository.UserRepository;
@@ -31,6 +33,9 @@ public class QuestionService {
 	
 	@Autowired
 	private AnswerRepository answerRepository;
+	
+	@Autowired
+	private CommentRepository commentRepository;
 
 	/*@Autowired
 	private TagRepository tagRepository;*/
@@ -50,8 +55,10 @@ public class QuestionService {
 	public Question findOne(int id) {
 		Question question = questionRepository.findOne(id);
 		//Tag tag = tagRepository.findOneByQuestion(question);
+		List<Comment> comments = commentRepository.findByQuestion(question);
 		List<Answer> answers = answerRepository.findByQuestion(question);
 		question.setAnswers(answers);
+		question.setComments(comments);
 		//question.setTag(tag);
 		return question;
 	}
