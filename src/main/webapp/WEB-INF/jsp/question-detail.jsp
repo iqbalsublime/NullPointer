@@ -38,6 +38,38 @@
 		</div>
 	</div>
 </div>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+			 	<form:form commandName="comment" cssClass="form-horizontal ">
+						<div class="col-md-2 column">
+						
+						</div>
+						<div class="col-md-8 column">
+									    <c:if test="${param.success eq true}">
+											<div class="alert alert-success">Answer posted successfull!</div>
+										</c:if> 
+										
+										<div class="form-group">
+											<div >
+												<form:input path="commentText" cssClass="form-control"  placeholder="Add new Comment"/>
+												<form:errors path="commentText"/>
+											</div>
+										</div>
+						</div>
+						<div class="col-md-2 column">
+							  <input type="submit" value="Add" class="btn btn-success">
+						</div>
+				</form:form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br/>
+
 <c:if test="${empty question.answers}">
 No Answer for this Question! 
 </c:if> 	

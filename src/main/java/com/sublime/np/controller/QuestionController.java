@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sublime.np.entity.Answer;
+import com.sublime.np.entity.Comment;
 import com.sublime.np.entity.Question;
 import com.sublime.np.service.QuestionService;
 import com.sublime.np.service.UserService;
@@ -32,6 +33,11 @@ public class QuestionController {
 	@ModelAttribute("answer")
 	public Answer constructAnswer(){
 		return new Answer();
+	}
+	
+	@ModelAttribute("comment")
+	public Comment constructComment(){
+		return new Comment();
 	}
 
 	@RequestMapping("/users/{id}")
