@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sublime.np.entity.Answer;
 import com.sublime.np.entity.Comment;
 import com.sublime.np.entity.Question;
+import com.sublime.np.service.CommentService;
 import com.sublime.np.service.QuestionService;
 import com.sublime.np.service.UserService;
 
@@ -29,6 +30,9 @@ public class QuestionController {
 	
 	@Autowired
 	private QuestionService questionService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	@ModelAttribute("answer")
 	public Answer constructAnswer(){
@@ -60,4 +64,13 @@ public class QuestionController {
 		questionService.saveAnser(answer, name);
 		return "redirect:/question/{id}.html?success=true";
 	}
+	
+	/*@RequestMapping(value="/question/{id}", method=RequestMethod.POST)
+	public String addComment(Model model,@Valid @ModelAttribute("comment") Comment comment, Principal principal, BindingResult result,  @PathVariable int id){
+		Question question = questionService.findOne(id);
+		comment.setQuestion(question);
+		String name = principal.getName();
+		commentService.save(comment, name);
+		return "redirect:/question/{id}.html?success=true";
+	}*/
 }

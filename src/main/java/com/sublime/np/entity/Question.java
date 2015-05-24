@@ -41,20 +41,20 @@ public class Question {
 	private List<Answer> answers;
 	
 	@OneToMany(mappedBy="question", cascade=CascadeType.REMOVE)
-	private List<Comment> comment;
+	private List<Comment> comments;
 	
 	@ManyToOne
 	@JoinColumn(name="tag_id")
 	private Tag tag;
 	
 	
-	public List<Comment> getComment() {
-		return comment;
+	public List<Comment> getComments() {
+		return comments;
 	}
 
 
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 
