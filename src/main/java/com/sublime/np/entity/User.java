@@ -43,11 +43,22 @@ public class User {
 	@JoinTable
 	private List<Role> roles;
 	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Question> questions;
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Answer> answers;
+	
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
+	private List<Comment> comments;
 	
 	public Integer getId() {
 		return id;

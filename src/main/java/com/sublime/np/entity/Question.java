@@ -40,14 +40,24 @@ public class Question {
 	@OneToMany(mappedBy="question", cascade=CascadeType.REMOVE)
 	private List<Answer> answers;
 	
+	@OneToMany(mappedBy="question", cascade=CascadeType.REMOVE)
+	private List<Comment> comment;
+	
 	@ManyToOne
 	@JoinColumn(name="tag_id")
 	private Tag tag;
 	
 	
-	
-	
-	
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
+
+
 	public Integer getId() {
 		return id;
 	}
