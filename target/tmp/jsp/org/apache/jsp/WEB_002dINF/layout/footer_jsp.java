@@ -43,7 +43,10 @@ public final class footer_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\n");
       out.write("<hr/>\n");
-      out.write("&copy; Sublime Soft");
+      out.write(" <footer>\n");
+      out.write("    <hr>\n");
+      out.write("    <p>  <a href=\"\" target=\"_blank\">©Sublime Soft 2015</a></p>\n");
+      out.write(" </footer>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

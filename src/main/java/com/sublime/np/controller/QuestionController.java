@@ -34,7 +34,7 @@ public class QuestionController {
 	@Autowired
 	private CommentService commentService;
 	
-	@ModelAttribute("answer")
+	/*@ModelAttribute("answer")
 	public Answer constructAnswer(){
 		return new Answer();
 	}
@@ -42,7 +42,7 @@ public class QuestionController {
 	@ModelAttribute("comment")
 	public Comment constructComment(){
 		return new Comment();
-	}
+	}*/
 
 	@RequestMapping("/users/{id}")
 	public String detail(Model model, @PathVariable int id){
@@ -53,6 +53,8 @@ public class QuestionController {
 	@RequestMapping("/question/{id}")
 	public String questionDetails(Model model, @PathVariable int id){
 		model.addAttribute("question", questionService.findOne(id));
+		model.addAttribute("answer", new Answer());
+		model.addAttribute("comment", new Comment());
 		return "question-detail";
 	}
 	
@@ -65,7 +67,7 @@ public class QuestionController {
 		return "redirect:/question/{id}.html?success=true";
 	}
 	
-	/*@RequestMapping(value="/question/{id}", method=RequestMethod.POST)
+	/*@RequestMapping(value="/comment/{id}", method=RequestMethod.POST)
 	public String addComment(Model model,@Valid @ModelAttribute("comment") Comment comment, Principal principal, BindingResult result,  @PathVariable int id){
 		Question question = questionService.findOne(id);
 		comment.setQuestion(question);
