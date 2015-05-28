@@ -10,4 +10,5 @@ Used Technology
 6. Bootstrap
 7. JQuery
 8. Maven 
-9.Jetty
+9. Jetty
+10. Angular JS  
