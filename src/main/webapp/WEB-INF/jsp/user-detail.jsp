@@ -4,7 +4,7 @@
 
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
@@ -14,21 +14,21 @@
 				<div class="panel-body">
 					<div class="container">
 						<div class="row clearfix">
-							<div class="col-md-12 column">
+							<div class="col-md-10 column">
 								<div class="row clearfix">
-									<div class="col-md-2 column">
+									<div class="col-md-1 column">
 										<label>Name:</label>
 									</div>
-									<div class="col-md-6 column">
+									<div class="col-md-5 column">
 										<h5>${user.name}</h5>
 									</div>
 									
 								</div>
 								<div class="row clearfix">
-									<div class="col-md-2 column">
+									<div class="col-md-1 column">
 										<label>ID:</label>
 									</div>
-									<div class="col-md-6 column">
+									<div class="col-md-5 column">
 										<h5>${user.id}</h5>
 									</div>
 									
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="row clearfix">
 				<div class="col-md-6 column">
 					<div class="panel panel-default">
