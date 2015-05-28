@@ -29,7 +29,7 @@ You are entering: {{student.fullName()}}
 
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="row clearfix">
 				<div class="col-md-6 column">
 					<div class="panel panel-default">
