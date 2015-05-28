@@ -93,7 +93,7 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"panel panel-info\">\r\n");
       out.write("\t\t\t\t<div class=\"panel-heading\">\r\n");
       out.write("\t\t\t\t\t<h3 class=\"panel-title\">\r\n");
@@ -149,7 +149,7 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       out.write("</div>\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"row clearfix\">\t\t\t \t\r\n");
       out.write("\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
       out.write("\t\t\t\t\t\t\r\n");
@@ -171,7 +171,7 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t\t \t");
       //  form:form
@@ -708,7 +708,7 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
           out.write("\r\n");
           out.write("\t\t<div class=\"container\">\r\n");
           out.write("\t\t\t<div class=\"row clearfix\">\r\n");
-          out.write("\t\t\t\t<div class=\"col-md-12 column\">\r\n");
+          out.write("\t\t\t\t<div class=\"col-md-11 column\">\r\n");
           out.write("\t\t\t\t\t<div class=\"panel panel-success\">\r\n");
           out.write("\t\t\t\t\t\t<div class=\"panel-heading\">\r\n");
           out.write("\t\t\t\t\t\t\t<h3 class=\"panel-title\">\r\n");

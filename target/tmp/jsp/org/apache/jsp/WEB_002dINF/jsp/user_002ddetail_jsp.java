@@ -86,7 +86,7 @@ static {
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"panel panel-default\">\r\n");
       out.write("\t\t\t\t<div class=\"panel-heading\">\r\n");
       out.write("\t\t\t\t\t<h3 class=\"panel-title\">\r\n");
@@ -99,12 +99,12 @@ static {
       out.write("\t\t\t\t<div class=\"panel-body\">\r\n");
       out.write("\t\t\t\t\t<div class=\"container\">\r\n");
       out.write("\t\t\t\t\t\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t\t\t\t\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-10 column\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-1 column\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<label>Name:</label>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-6 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-5 column\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<h5>");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</h5>\r\n");
@@ -112,10 +112,10 @@ static {
       out.write("\t\t\t\t\t\t\t\t\t\r\n");
       out.write("\t\t\t\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t\t\t\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-1 column\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<label>ID:</label>\r\n");
       out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-6 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<div class=\"col-md-5 column\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t<h5>");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</h5>\r\n");
@@ -155,7 +155,7 @@ static {
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t\t\t<div class=\"col-md-6 column\">\r\n");
       out.write("\t\t\t\t\t<div class=\"panel panel-default\">\r\n");

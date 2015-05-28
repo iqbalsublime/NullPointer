@@ -209,21 +209,17 @@ public final class classics_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\r\n");
       out.write("\r\n");
-      out.write("     ");
-      if (_jspx_meth_security_authorize_3(_jspx_page_context))
-        return;
-      out.write("\r\n");
       out.write("\r\n");
       out.write("        <li><a href=\"#\" data-target=\".legal-menu\" class=\"nav-header collapsed\" data-toggle=\"collapse\"><i class=\"fa fa-fw fa-legal\"></i> Legal<i class=\"fa fa-collapse\"></i></a></li>\r\n");
       out.write("        <li><ul class=\"legal-menu nav nav-list collapse\">\r\n");
-      out.write("            <li ><a href=\"privacy-policy.html\"><span class=\"fa fa-caret-right\"></span> Privacy Policy</a></li>\r\n");
-      out.write("            <li ><a href=\"terms-and-conditions.html\"><span class=\"fa fa-caret-right\"></span> Terms and Conditions</a></li>\r\n");
+      out.write("            <li ><a href=\"\"><span class=\"fa fa-caret-right\"></span> Privacy Policy</a></li>\r\n");
+      out.write("            <li ><a href=\"\"><span class=\"fa fa-caret-right\"></span> Terms and Conditions</a></li>\r\n");
       out.write("    </ul></li>\r\n");
+      out.write("\t\t");
+      if (_jspx_meth_security_authorize_3(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("        <li><a href=\"help.html\" class=\"nav-header\"><i class=\"fa fa-fw fa-question-circle\"></i> Help</a></li>\r\n");
-      out.write("            <li><a href=\"faq.html\" class=\"nav-header\"><i class=\"fa fa-fw fa-comment\"></i> Faq</a></li>\r\n");
-      out.write("                <li><a href=\"http://portnine.com/bootstrap-themes/aircraft\" class=\"nav-header\" target=\"blank\"><i class=\"fa fa-fw fa-heart\"></i> Get Premium</a></li>\r\n");
-      out.write("            </ul>\r\n");
+      out.write("    </ul>\r\n");
       out.write("    </div>\r\n");
       out.write("\r\n");
       out.write("    <div class=\"content\">\r\n");
@@ -234,10 +230,16 @@ public final class classics_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <p class=\"stat\"><span class=\"label label-danger\">15</span> Overdue</p>\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");
-      out.write("            <h1 class=\"page-title\">Dashboard</h1>\r\n");
+      out.write("            <h1 class=\"page-title\">");
+      if (_jspx_meth_tiles_getAsString_1(_jspx_page_context))
+        return;
+      out.write("</h1>\r\n");
       out.write("                    <ul class=\"breadcrumb\">\r\n");
       out.write("            <li><a href=\"index.html\">Home</a> </li>\r\n");
-      out.write("            <li class=\"active\">Dashboard</li>\r\n");
+      out.write("            <li class=\"active\">");
+      if (_jspx_meth_tiles_getAsString_2(_jspx_page_context))
+        return;
+      out.write("</li>\r\n");
       out.write("        </ul>\r\n");
       out.write("\r\n");
       out.write("        </div>\r\n");
@@ -640,8 +642,8 @@ public final class classics_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_security_authorize_1 = _jspx_th_security_authorize_1.doStartTag();
     if (_jspx_eval_security_authorize_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       out.write("\r\n");
-      out.write("    <li><a href=\"#\" data-target=\".dashboard-menu\" class=\"nav-header\" data-toggle=\"collapse\"><i class=\"fa fa-fw fa-dashboard\"></i> Admin Panel<i class=\"fa fa-collapse\"></i></a></li>\r\n");
-      out.write("    <li><ul class=\"dashboard-menu nav nav-list collapse\">\r\n");
+      out.write("    <li><a href=\"#\" data-target=\".dashboard-adminPanel\" class=\"nav-header\" data-toggle=\"collapse\"><i class=\"fa fa-fw fa-dashboard\"></i> Admin Panel<i class=\"fa fa-collapse\"></i></a></li>\r\n");
+      out.write("    <li><ul class=\"dashboard-adminPanel nav nav-list collapse\">\r\n");
       out.write("            <li><a href=\"");
       if (_jspx_meth_spring_url_11((javax.servlet.jsp.tagext.JspTag) _jspx_th_security_authorize_1, _jspx_page_context))
         return true;
@@ -780,18 +782,15 @@ public final class classics_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_security_authorize_3 = _jspx_th_security_authorize_3.doStartTag();
     if (_jspx_eval_security_authorize_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       out.write("\r\n");
-      out.write("        <li><a href=\"#\" data-target=\".accounts-menu\" class=\"nav-header collapsed\" data-toggle=\"collapse\"><i class=\"fa fa-fw fa-briefcase\"></i> Account <span class=\"label label-info\">+3</span></a></li>\r\n");
-      out.write("        <li><ul class=\"accounts-menu nav nav-list collapse\">\r\n");
-      out.write("            <li ><a href=\"");
+      out.write("        <li><a href=\"");
       if (_jspx_meth_spring_url_14((javax.servlet.jsp.tagext.JspTag) _jspx_th_security_authorize_3, _jspx_page_context))
         return true;
-      out.write("\"><span class=\"fa fa-caret-right\"></span> Register</a></li>\r\n");
-      out.write("            <li ><a href=\"");
+      out.write("\" class=\"nav-header\"><i class=\"fa fa-fw fa-question-circle\"></i> Register</a></li>\r\n");
+      out.write("        <li><a href=\"");
       if (_jspx_meth_spring_url_15((javax.servlet.jsp.tagext.JspTag) _jspx_th_security_authorize_3, _jspx_page_context))
         return true;
-      out.write("\"><span class=\"fa fa-caret-right\"></span> Login</a></li>\r\n");
-      out.write("    </ul></li>\r\n");
-      out.write("    ");
+      out.write("\" class=\"nav-header\"><i class=\"fa fa-fw fa-comment\"></i> Login</a></li>\r\n");
+      out.write("        ");
     }
     if (_jspx_th_security_authorize_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_security_authorize_access.reuse(_jspx_th_security_authorize_3);
@@ -850,6 +849,32 @@ public final class classics_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_spring_url_15.doFinally();
       _jspx_tagPool_spring_url_value_nobody.reuse(_jspx_th_spring_url_15);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_tiles_getAsString_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  tiles:getAsString
+    org.apache.tiles.jsp.taglib.GetAsStringTag _jspx_th_tiles_getAsString_1 = (_jspx_resourceInjector != null)? _jspx_resourceInjector.createTagHandlerInstance(org.apache.tiles.jsp.taglib.GetAsStringTag.class) : new org.apache.tiles.jsp.taglib.GetAsStringTag();
+    _jspx_th_tiles_getAsString_1.setJspContext(_jspx_page_context);
+    _jspx_th_tiles_getAsString_1.setName("title");
+    _jspx_th_tiles_getAsString_1.doTag();
+    if (_jspx_resourceInjector != null) _jspx_resourceInjector.preDestroy(_jspx_th_tiles_getAsString_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_tiles_getAsString_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  tiles:getAsString
+    org.apache.tiles.jsp.taglib.GetAsStringTag _jspx_th_tiles_getAsString_2 = (_jspx_resourceInjector != null)? _jspx_resourceInjector.createTagHandlerInstance(org.apache.tiles.jsp.taglib.GetAsStringTag.class) : new org.apache.tiles.jsp.taglib.GetAsStringTag();
+    _jspx_th_tiles_getAsString_2.setJspContext(_jspx_page_context);
+    _jspx_th_tiles_getAsString_2.setName("title");
+    _jspx_th_tiles_getAsString_2.doTag();
+    if (_jspx_resourceInjector != null) _jspx_resourceInjector.preDestroy(_jspx_th_tiles_getAsString_2);
     return false;
   }
 

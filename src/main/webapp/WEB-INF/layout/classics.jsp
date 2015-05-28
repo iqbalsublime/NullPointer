@@ -129,8 +129,8 @@
     <div class="sidebar-nav">
     <ul>
     <security:authorize access="hasRole('ROLE_ADMIN')">
-    <li><a href="#" data-target=".dashboard-menu" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> Admin Panel<i class="fa fa-collapse"></i></a></li>
-    <li><ul class="dashboard-menu nav nav-list collapse">
+    <li><a href="#" data-target=".dashboard-adminPanel" class="nav-header" data-toggle="collapse"><i class="fa fa-fw fa-dashboard"></i> Admin Panel<i class="fa fa-collapse"></i></a></li>
+    <li><ul class="dashboard-adminPanel nav nav-list collapse">
             <li><a href="<spring:url value="/users.html" />"><span class="fa fa-caret-right"></span> Users</a></li>
     </ul></li>
       </security:authorize>
@@ -143,24 +143,17 @@
     </ul></li>
 	</security:authorize>
 
-     <security:authorize access="!isAuthenticated()">
-        <li><a href="#" data-target=".accounts-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-briefcase"></i> Account <span class="label label-info">+3</span></a></li>
-        <li><ul class="accounts-menu nav nav-list collapse">
-            <li ><a href="<spring:url value="/register.html" />"><span class="fa fa-caret-right"></span> Register</a></li>
-            <li ><a href="<spring:url value="/login.html" />"><span class="fa fa-caret-right"></span> Login</a></li>
-    </ul></li>
-    </security:authorize>
 
         <li><a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-legal"></i> Legal<i class="fa fa-collapse"></i></a></li>
         <li><ul class="legal-menu nav nav-list collapse">
-            <li ><a href="privacy-policy.html"><span class="fa fa-caret-right"></span> Privacy Policy</a></li>
-            <li ><a href="terms-and-conditions.html"><span class="fa fa-caret-right"></span> Terms and Conditions</a></li>
+            <li ><a href=""><span class="fa fa-caret-right"></span> Privacy Policy</a></li>
+            <li ><a href=""><span class="fa fa-caret-right"></span> Terms and Conditions</a></li>
     </ul></li>
-
-        <li><a href="help.html" class="nav-header"><i class="fa fa-fw fa-question-circle"></i> Help</a></li>
-            <li><a href="faq.html" class="nav-header"><i class="fa fa-fw fa-comment"></i> Faq</a></li>
-                <li><a href="http://portnine.com/bootstrap-themes/aircraft" class="nav-header" target="blank"><i class="fa fa-fw fa-heart"></i> Get Premium</a></li>
-            </ul>
+		<security:authorize access="!isAuthenticated()">
+        <li><a href="<spring:url value="/register.html" />" class="nav-header"><i class="fa fa-fw fa-question-circle"></i> Register</a></li>
+        <li><a href="<spring:url value="/login.html" />" class="nav-header"><i class="fa fa-fw fa-comment"></i> Login</a></li>
+        </security:authorize>
+    </ul>
     </div>
 
     <div class="content">
@@ -171,10 +164,10 @@
     <p class="stat"><span class="label label-danger">15</span> Overdue</p>
 </div>
 
-            <h1 class="page-title">Dashboard</h1>
+            <h1 class="page-title"><tiles:getAsString name="title" /></h1>
                     <ul class="breadcrumb">
             <li><a href="index.html">Home</a> </li>
-            <li class="active">Dashboard</li>
+            <li class="active"><tiles:getAsString name="title" /></li>
         </ul>
 
         </div>

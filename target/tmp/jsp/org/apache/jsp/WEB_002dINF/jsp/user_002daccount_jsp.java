@@ -111,7 +111,7 @@ static {
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"panel panel-default\">\r\n");
       out.write("\t\t\t\t<div class=\"panel-heading\">\r\n");
       out.write("\t\t\t\t\t<h3 class=\"panel-title\">\r\n");
@@ -177,7 +177,7 @@ static {
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t\t\t<div class=\"col-md-6 column\">\r\n");
       out.write("\t\t\t\t\t<div class=\"panel panel-default\">\r\n");
