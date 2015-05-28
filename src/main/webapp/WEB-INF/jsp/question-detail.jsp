@@ -5,7 +5,7 @@
 
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h3 class="panel-title">
@@ -40,7 +40,7 @@
 </div>
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="row clearfix">			 	
 						<div class="col-md-2 column">
 						
@@ -63,7 +63,7 @@
 
 <div class="container">
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-md-11 column">
 			<div class="row clearfix">
 			 	<form:form commandName="comment" cssClass="form-horizontal ">
 						<div class="col-md-2 column">
@@ -101,7 +101,7 @@ No Answer for this Question!
 	<c:forEach items="${question.answers}" var="answer">
 		<div class="container">
 			<div class="row clearfix">
-				<div class="col-md-12 column">
+				<div class="col-md-11 column">
 					<div class="panel panel-success">
 						<div class="panel-heading">
 							<h3 class="panel-title">
