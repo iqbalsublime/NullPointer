@@ -17,6 +17,12 @@
 					<form:errors path="title"/>
 				</div>
 			</div>
+			 <div class="form-group ">             
+                  <label for="1st"class="col-lg-3 control-label">Start Date</label>
+                     <div class="col-lg-3">
+                       <form:input path="publishedDate" class="date-picker form-control" placeholder="yyyy/mm/dd"/>
+                     </div>       
+             </div> 
 			<div class="form-group">
 				<label for="description" class="col-sm-2 control-label">Descrption:</label>
 				<div class="col-sm-10">
@@ -38,7 +44,13 @@
 			</div>
 			 <div class="modal-footer">
 		      <!--   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-		        <input type="submit" value="Save" class="btn btn-success">
+		        <input type="submit" value="Save" class="btn btn-info btn-lg round-btn" >
 		      </div>
   </form:form>
 
+<style>
+.round-btn{
+border-radius: 28px;
+}
+
+</style>

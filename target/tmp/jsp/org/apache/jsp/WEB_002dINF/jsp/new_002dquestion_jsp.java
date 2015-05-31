@@ -20,6 +20,7 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_textarea_path_cssClass_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_input_placeholder_path_class_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_select_path_class;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_errors_path_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_form_cssClass_commandName;
@@ -35,6 +36,7 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_textarea_path_cssClass_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_form_input_placeholder_path_class_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_select_path_class = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_errors_path_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_form_cssClass_commandName = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -45,6 +47,7 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
     _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_form_textarea_path_cssClass_nobody.release();
     _jspx_tagPool_c_if_test.release();
+    _jspx_tagPool_form_input_placeholder_path_class_nobody.release();
     _jspx_tagPool_form_select_path_class.release();
     _jspx_tagPool_form_errors_path_nobody.release();
     _jspx_tagPool_form_form_cssClass_commandName.release();
@@ -135,6 +138,15 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
             out.write("\r\n");
             out.write("\t\t\t\t</div>\r\n");
             out.write("\t\t\t</div>\r\n");
+            out.write("\t\t\t <div class=\"form-group \">             \r\n");
+            out.write("                  <label for=\"1st\"class=\"col-lg-3 control-label\">Start Date</label>\r\n");
+            out.write("                     <div class=\"col-lg-3\">\r\n");
+            out.write("                       ");
+            if (_jspx_meth_form_input_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
+              return;
+            out.write("\r\n");
+            out.write("                     </div>       \r\n");
+            out.write("             </div> \r\n");
             out.write("\t\t\t<div class=\"form-group\">\r\n");
             out.write("\t\t\t\t<label for=\"description\" class=\"col-sm-2 control-label\">Descrption:</label>\r\n");
             out.write("\t\t\t\t<div class=\"col-sm-10\">\r\n");
@@ -176,7 +188,7 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
             out.write("\t\t\t</div>\r\n");
             out.write("\t\t\t <div class=\"modal-footer\">\r\n");
             out.write("\t\t      <!--   <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button> -->\r\n");
-            out.write("\t\t        <input type=\"submit\" value=\"Save\" class=\"btn btn-success\">\r\n");
+            out.write("\t\t        <input type=\"submit\" value=\"Save\" class=\"btn btn-info btn-lg round-btn\" >\r\n");
             out.write("\t\t      </div>\r\n");
             out.write("  ");
             int evalDoAfterBody = _jspx_th_form_form_0.doAfterBody();
@@ -197,6 +209,12 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
       }
       out.write("\r\n");
       out.write("\r\n");
+      out.write("<style>\r\n");
+      out.write(".round-btn{\r\n");
+      out.write("border-radius: 28px;\r\n");
+      out.write("}\r\n");
+      out.write("\r\n");
+      out.write("</style>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -261,6 +279,34 @@ public final class new_002dquestion_jsp extends org.apache.jasper.runtime.HttpJs
     } finally {
       _jspx_th_form_input_0.doFinally();
       _jspx_tagPool_form_input_path_cssClass_nobody.reuse(_jspx_th_form_input_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_form_input_1(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:input
+    org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_input_1 = (org.springframework.web.servlet.tags.form.InputTag) _jspx_tagPool_form_input_placeholder_path_class_nobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
+    _jspx_th_form_input_1.setPageContext(_jspx_page_context);
+    _jspx_th_form_input_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
+    _jspx_th_form_input_1.setPath("publishedDate");
+    _jspx_th_form_input_1.setDynamicAttribute(null, "class", new String("date-picker form-control"));
+    _jspx_th_form_input_1.setDynamicAttribute(null, "placeholder", new String("yyyy/mm/dd"));
+    int[] _jspx_push_body_count_form_input_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_input_1 = _jspx_th_form_input_1.doStartTag();
+      if (_jspx_th_form_input_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_input_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_input_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_input_1.doFinally();
+      _jspx_tagPool_form_input_placeholder_path_class_nobody.reuse(_jspx_th_form_input_1);
     }
     return false;
   }
