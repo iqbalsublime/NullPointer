@@ -75,8 +75,8 @@ public final class tag_002ddetail_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<div class=\"container\">\r\n");
-      out.write("\t<div class=\"row clearfix\">\r\n");
+      out.write("<div class=\"container\" ng-app=\"helloApp\">\r\n");
+      out.write("\t<div class=\"row clearfix\" ng-controller=\"HttpController\">\r\n");
       out.write("\t\t<div class=\"col-md-12 column\">\r\n");
       out.write("\t\t\t<ul class=\"nav nav-pills\">\r\n");
       out.write("\t\t\t\t<li class=\"active\">\r\n");
@@ -87,6 +87,7 @@ public final class tag_002ddetail_jsp extends org.apache.jasper.runtime.HttpJspB
       if (_jspx_meth_c_out_1(_jspx_page_context))
         return;
       out.write("</a>\r\n");
+      out.write("\t\t\t\t\t <a data-ng-click=\"getAllTodos()\">Click</a>\r\n");
       out.write("\t\t\t\t</li>\r\n");
       out.write("\t\t\t</ul>\r\n");
       out.write("\t\t</div>\r\n");
@@ -99,7 +100,25 @@ public final class tag_002ddetail_jsp extends org.apache.jasper.runtime.HttpJspB
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
       out.write(" \r\n");
-      out.write("\r\n");
+      out.write("<script type=\"text/javascript\">\r\n");
+      out.write("var helloApp = angular.module(\"helloApp\", []);\r\n");
+      out.write("helloApp.controller(\"HttpController\", [ '$scope', '$http', function($scope, $http) {\r\n");
+      out.write("\t\r\n");
+      out.write("\t$scope.getAllTodos = function(){\r\n");
+      out.write("\t\t$http({\r\n");
+      out.write("\t\t\tmethod : 'GET',\r\n");
+      out.write("\t\t\turl : '/getAllProfiles.html'\r\n");
+      out.write("\t\t}).success(function(data, status, headers, config) {\r\n");
+      out.write("\t\t\t$scope.profiles = data;\r\n");
+      out.write("\t\t}).error(function(data, status, headers, config) {\r\n");
+      out.write("\t\t\talert( \"failure\");\r\n");
+      out.write("\t\t});\r\n");
+      out.write("    }\r\n");
+      out.write("\t\r\n");
+      out.write("\t\t\r\n");
+      out.write("} ])\r\n");
+      out.write("\t\r\n");
+      out.write("</script>\r\n");
       out.write("\r\n");
       out.write("\r\n");
     } catch (Throwable t) {
