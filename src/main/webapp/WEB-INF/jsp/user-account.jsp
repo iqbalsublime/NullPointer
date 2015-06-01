@@ -15,6 +15,13 @@ mainApp.controller('studentController', function($scope) {
          return studentObject.firstName + " " + studentObject.lastName;
       }
    };
+   
+   $scope.questions = [{"title":"What is Java?","id":"1"}, {"title":"What is Java Script?","id":"2"}];
+   $scope.title= 'Hello';
+   $scope.add = function(id){
+	   console.log("Controller hit!");
+	   console.log(id);
+   };
 });
 </script>
 
@@ -24,6 +31,28 @@ Enter first name: <input type="text" ng-model="student.firstName"><br><br>
 Enter last name: <input type="text" ng-model="student.lastName"><br>
 <br>
 You are entering: {{student.fullName()}}
+{{title}}
+
+					<div class="panel-body">
+								<div class="container" data-ng-repeat="question in questions">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a data-ng-click="add(question.id)">
+														{{title}}
+														{{question.title}}
+													</a> 
+													<div>
+														<small>On  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+						</div>
 </div>
 
 
@@ -126,6 +155,90 @@ $(document).ready(function() {
 								</div>
 								
 							</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-6 column">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<c:if test="${empty user.answers}">
+									There is no answer of this user
+								</c:if>
+								<c:if test="${not empty user.answers}">
+									Answers
+								</c:if>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<c:forEach items="${user.answers}" var="answer">
+								<div class="container">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a href="<spring:url value="/question/${answer.question.id}.html" />">
+														<c:set var="ansTitle" value="${fn:substring(answer.question.title, 0, 30)}" />
+														<c:out value="${ansTitle}" />..
+													</a> 
+													<div>
+														<c:set var="des" value="${fn:substring(answer.description, 0, 30)}" />
+														<small><c:out value="${des}" /> ... </small>
+														
+													</div>
+													<div>
+														<small>On <c:out value="${answer.publishedDate}" />  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container" ng-app="mainApp" ng-controller="studentController">
+	<div class="row clearfix">
+		<div class="col-md-11 column">
+			<div class="row clearfix">
+				<div class="col-md-6 column">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								
+							</h3>
+						</div>
+						<div class="panel-body">
+						
+								<div class="container" data-ng-repeat="question in questions">
+									<div class="row clearfix">
+										<div class=" column">
+											<div class="">
+												<h3>
+													<a >
+														{{title}}
+														{{question.title}}
+													</a> 
+													<div>
+														<small>On  </small>
+													</div>
+												</h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								
 						</div>
 						
 					</div>
