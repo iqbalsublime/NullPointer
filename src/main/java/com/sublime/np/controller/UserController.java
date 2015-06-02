@@ -7,11 +7,13 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sublime.np.entity.Answer;
 import com.sublime.np.entity.Question;
@@ -67,5 +69,16 @@ public class UserController {
 		return "tag-detail";
 	}
 	
+	/*@RequestMapping("/angular")
+	public String angular(Model model, String principal){
+		System.out.println(principal);
+		return "account";
+	}*/
+	
+	@RequestMapping(value = "/angular", method = RequestMethod.GET)
+	public @ResponseBody String getAllProfiles( ModelMap model ) {
+	    String jsonData = "[{\"firstname\":\"ajitesh\",\"lastname\":\"kumar\",\"address\":\"211/20-B,mgstreet\",\"city\":\"hyderabad\",\"phone\":\"999-888-6666\"},{\"firstname\":\"nidhi\",\"lastname\":\"rai\",\"address\":\"201,mgstreet\",\"city\":\"hyderabad\",\"phone\":\"999-876-5432\"}]";
+	    return jsonData;
+	}
 	
 }

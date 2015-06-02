@@ -1,6 +1,7 @@
 package com.sublime.np.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -36,12 +37,13 @@ public class QuestionController {
 	@Autowired
 	private CommentService commentService;
 	
-	@RequestMapping(value = "/getAllProfiles", method = RequestMethod.GET)
-	public  @ResponseBody String getAllProfiles( ModelMap model ) {
-		String jsonData = "[{\"firstname\":\"ajitesh\",\"lastname\":\"kumar\",\"address\":\"211/20-B,mgstreet\",\"city\":\"hyderabad\",\"phone\":\"999-888-6666\"},{\"firstname\":\"nidhi\",\"lastname\":\"rai\",\"address\":\"201,mgstreet\",\"city\":\"hyderabad\",\"phone\":\"999-876-5432\"}]";
-		return jsonData;
+	/*@RequestMapping(value = "/angularList", method = RequestMethod.GET)
+	public @ResponseBody String getAllProfiles( ModelMap model ) {
+		List<Question> question = questionService.getAll();
+		System.out.println(question.toArray());
+	    return question.toString();
 	}
-	
+	*/
 
 	@RequestMapping("/users/{id}")
 	public String detail(Model model, @PathVariable int id){
