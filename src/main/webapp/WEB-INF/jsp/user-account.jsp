@@ -5,33 +5,94 @@
 <script>
 var mainApp = angular.module("mainApp", []);
 
-mainApp.controller('studentController', function($scope) {
-   $scope.student = {
-      firstName: "Mahesh",
-      lastName: "Parashar",
-      fullName: function() {
-         var studentObject;
-         studentObject = $scope.student;
-         return studentObject.firstName + " " + studentObject.lastName;
-      }
-   };
+mainApp.controller('studentController', function($scope, $http) {
    
    $scope.questions = [{"title":"What is Java?","id":"1"}, {"title":"What is Java Script?","id":"2"}];
    $scope.title= 'Hello';
+   $scope.hideTable  = true ;
+   $scope.hideButton  = true ;
+   $scope.hidePanel = function(){
+	   $scope.hideTable  = true ;
+	   $scope.hideButton  = true ;
+   }; 
    $scope.add = function(id){
 	   console.log("Controller hit!");
 	   console.log(id);
+	   $http({
+		    url: '/angular.html',
+		    method: 'GET',
+		    data: id,
+		    headers: {
+		    }
+		    }).success(function(response){
+		        $scope.response = response;
+		        console.log($scope.response);
+		        $scope.hideTable = false;
+		        $scope.hideButton  = false ;
+		    }).error(function(error){
+		        $scope.response = error;
+		        console.log("Failed");
+		});
    };
+   
+   var init = function () {
+	   console.log("On page load");
+	};
+	// and fire it after definition
+	init();
+   
 });
 </script>
 
 <div ng-app="mainApp" ng-controller="studentController">
-
-Enter first name: <input type="text" ng-model="student.firstName"><br><br>
-Enter last name: <input type="text" ng-model="student.lastName"><br>
-<br>
-You are entering: {{student.fullName()}}
-{{title}}
+					<div class="container" ng-hide="hideButton">
+						<div class="row clearfix">
+							<div class="col-md-12 column">
+								 <button type="button" class="btn btn-sm active btn-success" data-ng-click="hidePanel()">Hide Table</button>
+							</div>
+						</div>
+					</div>
+					<div class="container" ng-hide="hideTable">
+						<div class="row clearfix">
+							<div class=" column">
+								<table class="table table-striped table-hover">
+									<thead>
+										<tr class="info">
+											<th>
+												Name
+											</th>
+											<th>
+												Address
+											</th>
+											<th>
+												City
+											</th>
+											<th>
+												Phone
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr data-ng-repeat="person in response" class="success">
+											<td>
+												{{person.firstname}}
+											</td>
+											<td>
+												{{person.address}}
+											</td>
+											<td>
+												{{person.city}}
+											</td>
+											<td>
+												{{person.phone}}
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 
 					<div class="panel-body">
 								<div class="container" data-ng-repeat="question in questions">
