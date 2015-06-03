@@ -15,20 +15,39 @@ mainApp.controller('studentController', function($scope, $http) {
 	   $scope.hideTable  = true ;
 	   $scope.hideButton  = true ;
    }; 
+   $scope.getData = function(){
+	   console.log("Controller hit!");
+	   $http({
+		    url: '/getAll.json',
+		    method: 'GET',
+		    headers: {
+		    	"Content-Type": "application/json"
+		    }
+		    }).success(function(response){
+		        $scope.data = response;
+		        console.log($scope.data);
+		       /*  $scope.hideTable = false;
+		        $scope.hideButton  = false ; */
+		    }).error(function(error){
+		        $scope.data = error;
+		        console.log("Failed");
+		});
+   };
+   
    $scope.add = function(id){
 	   console.log("Controller hit!");
 	   console.log(id);
 	   $http({
-		    url: '/angular.html',
+		    url: '/mkyoung.json',
 		    method: 'GET',
-		    data: id,
 		    headers: {
+		    	"Content-Type": "application/json"
 		    }
 		    }).success(function(response){
 		        $scope.response = response;
 		        console.log($scope.response);
-		        $scope.hideTable = false;
-		        $scope.hideButton  = false ;
+		       /*  $scope.hideTable = false;
+		        $scope.hideButton  = false ; */
 		    }).error(function(error){
 		        $scope.response = error;
 		        console.log("Failed");
@@ -45,6 +64,8 @@ mainApp.controller('studentController', function($scope, $http) {
 </script>
 
 <div ng-app="mainApp" ng-controller="studentController">
+
+			<a data-ng-click="getData()">Get List</a>
 					<div class="container" ng-hide="hideButton">
 						<div class="row clearfix">
 							<div class="col-md-12 column">
@@ -73,7 +94,7 @@ mainApp.controller('studentController', function($scope, $http) {
 										</tr>
 									</thead>
 									<tbody>
-										<tr data-ng-repeat="person in response" class="success">
+										<tr data-ng-repeat="person in responses" class="success">
 											<td>
 												{{person.firstname}}
 											</td>
