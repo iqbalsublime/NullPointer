@@ -1,6 +1,7 @@
 package com.sublime.np.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sublime.np.entity.Answer;
 import com.sublime.np.entity.Question;
+import com.sublime.np.entity.Tag;
 import com.sublime.np.service.QuestionService;
 import com.sublime.np.service.TagService;
 import com.sublime.np.service.UserService;
@@ -79,6 +81,12 @@ public class UserController {
 	public @ResponseBody String getAllProfiles( ModelMap model ) {
 	    String jsonData = "[{\"firstname\":\"ajitesh\",\"lastname\":\"kumar\",\"address\":\"211/20-B,mgstreet\",\"city\":\"hyderabad\",\"phone\":\"999-888-6666\"},{\"firstname\":\"nidhi\",\"lastname\":\"rai\",\"address\":\"201,mgstreet\",\"city\":\"hyderabad\",\"phone\":\"999-876-5432\"}]";
 	    return jsonData;
+	}
+	
+	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
+	public @ResponseBody Object getAllTags( ) {
+	    
+		return tagService.findAll();
 	}
 	
 }
