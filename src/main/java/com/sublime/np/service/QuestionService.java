@@ -49,7 +49,7 @@ public class QuestionService {
 	}
 
 	public List<Question> getAll() {
-		return questionRepository.findAll(new PageRequest(0, 8, Direction.DESC, "publishedDate")).getContent();
+		return questionRepository.findAll();
 	}
 
 	public Question findOne(int id) {
