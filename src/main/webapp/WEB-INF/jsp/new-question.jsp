@@ -16,13 +16,7 @@
 					<form:input path="title" cssClass="form-control"/>
 					<form:errors path="title"/>
 				</div>
-			</div>
-			 <div class="form-group ">             
-                  <label for="1st"class="col-lg-3 control-label">Start Date</label>
-                     <div class="col-lg-3">
-                       <form:input path="publishedDate" class="date-picker form-control" placeholder="yyyy/mm/dd"/>
-                     </div>       
-             </div> 
+			</div> 
 			<div class="form-group">
 				<label for="description" class="col-sm-2 control-label">Descrption:</label>
 				<div class="col-sm-10">
