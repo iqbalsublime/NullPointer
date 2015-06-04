@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sublime.np.bean.QuestionBean;
+import com.sublime.np.converter.EntityToBeanConverter;
 import com.sublime.np.entity.Question;
 import com.sublime.np.entity.Shop;
-import com.sublime.np.entity.Tag;
 import com.sublime.np.entity.User;
 import com.sublime.np.service.QuestionService;
-import com.sublime.np.service.TagService;
 
 @Controller
 public class JSONController {
@@ -55,14 +55,16 @@ public class JSONController {
 
 	}
 	
-//	@RequestMapping(value = "mkyoung", method = RequestMethod.GET)
-//	public @ResponseBody Shop getShopInJSON() {
-//
-//		Shop shop = new Shop();
-//		shop.setName("G");
-//		shop.setStaffName(new String[] { "mkyong1", "mkyong2" });
-//		return shop;
-//
-//	}
+	@RequestMapping(value = "getquestion", method = RequestMethod.GET)
+	public @ResponseBody List<QuestionBean> getQuestion() {
+		List<Question> questions = questionService.getAll();
+		List<QuestionBean> questionbeans = new ArrayList<QuestionBean>();
+		for (Question question : questions) {
+			QuestionBean questionBean = new QuestionBean();
+			questionBean = EntityToBeanConverter.convertQuestionIntoToBean(question);
+			questionbeans.add(questionBean);
+		}
+		return questionbeans;
+	}
 
 }
