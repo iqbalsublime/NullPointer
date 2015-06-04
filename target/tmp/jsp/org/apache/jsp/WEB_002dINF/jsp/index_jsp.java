@@ -16,10 +16,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_dependants.add("/WEB-INF/jsp/../layout/taglib.jsp");
   }
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatDate_value_type_timeStyle_dateStyle_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_spring_url_value_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -28,17 +25,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_fmt_formatDate_value_type_timeStyle_dateStyle_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_spring_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_fmt_formatDate_value_type_timeStyle_dateStyle_nobody.release();
-    _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_spring_url_value_nobody.release();
-    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -75,21 +66,176 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<h1>Latest Questions</h1>\r\n");
-      out.write("\r\n");
-      out.write("<table class=\"table table-bordered table-hover table-striped\">\r\n");
-      out.write("\t<thead>\r\n");
-      out.write("\t\t<tr>\r\n");
-      out.write("\t\t\t<th>Questions</th>\r\n");
-      out.write("\t\t</tr>\r\n");
-      out.write("\t</thead>\r\n");
-      out.write("\t<tbody>\r\n");
-      out.write("\t\t");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+      out.write("<div ng-app=\"mainApp\" ng-controller=\"indexController\">\r\n");
+      out.write("<div class=\"container\">\r\n");
+      out.write("\t<div class=\"row clearfix\">\r\n");
+      out.write("\t\t<div class=\"col-md-12 column\">\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"row clearfix\" ng-hide=\"searchBar\">\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-5 column\" style=\" text-align: right;\">\r\n");
+      out.write("\t\t\t\t\t\t\t<label>filter is enabled,</label><a data-ng-click=\"disableFilter()\" style=\"\">disable?</a>\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-2 column\" style=\" text-align: right;\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<label>No of Items</label>\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-1 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<form class=\"form-inline\" role=\"form\" data-placement='bottom'  data-toggle=\"tooltip\"  title=\"Select iteams per Page\">\r\n");
+      out.write("\t\t\t\t\t\t   \t\t<div class=\"clientCount\">\r\n");
+      out.write("\t\t\t\t\t\t        \t<!-- <label class=\"text-muted\" style=\"font-size: 85%\">{{itemRows}} : </label> -->\r\n");
+      out.write("\t\t\t\t\t\t\t         <select class=\"form-control\" data-ng-model=\"pageSize\">\r\n");
+      out.write("\t\t\t\t\t\t\t            <option>6</option>\r\n");
+      out.write("\t\t\t\t\t\t\t         \t<option>9</option>\r\n");
+      out.write("\t\t\t\t\t\t\t         \t<option>10</option>\r\n");
+      out.write("\t\t\t\t\t\t\t         \t<option>20</option>\r\n");
+      out.write("\t\t\t\t\t\t\t         \t<option>30</option>\r\n");
+      out.write("\t\t\t\t\t\t\t         </select>\r\n");
+      out.write("\t\t\t\t\t\t    \t</div>\r\n");
+      out.write("\t\t\t\t\t\t    \t </form>   \r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-4 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<div>\r\n");
+      out.write("\t\t\t\t\t\t\t        <input type=\"text\" name=\"table_search\" class=\"form-control input-sm clientSearch\" placeholder= \"Search\" data-ng-model=\"searchText\"/>\r\n");
+      out.write("\t\t\t\t\t\t\t     </div>\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"row clearfix\" ng-hide=\"filterEnableBar\">\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-5 column\" style=\" text-align: right;\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<label>filter is disbaled,</label><a data-ng-click=\"enableFilter()\">enable?</a>\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-5 column\" >\r\n");
+      out.write("\t\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t\t\t\r\n");
+      out.write("\t\t\t\t<h1>Latest Questions</h1>\r\n");
+      out.write("\t\t\t\t\r\n");
+      out.write("\t\t\t\t<table class=\"table table-bordered table-hover table-striped\" ng-hide=\"hideQuestion\">\r\n");
+      out.write("\t\t\t\t\t<thead>\r\n");
+      out.write("\t\t\t\t\t\t<tr>\r\n");
+      out.write("\t\t\t\t\t\t\t<th>Questions</th>\r\n");
+      out.write("\t\t\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t\t</thead>\r\n");
+      out.write("\t\t\t\t\t<tbody>\r\n");
+      out.write("\t\t\t\t\t\t\t<tr data-ng-repeat=\"question in response\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<td > \r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<strong>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<a href=\"");
+      if (_jspx_meth_spring_url_0(_jspx_page_context))
         return;
+      out.write("\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t{{question.title}}\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</a> \r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</strong>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<br />\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t{{question.description}}\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<br />\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<div class=\"container\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"row clearfix\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-1 column\" style=\" text-align: right;\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t <span class=\"label label-warning\" href=\"");
+      if (_jspx_meth_spring_url_1(_jspx_page_context))
+        return;
+      out.write("\">{{question.tagName}}</span>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-4 column\"  style=\" text-align: left;\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t On {{question.publishedDate  | date:'medium'}} by <a href=\"");
+      if (_jspx_meth_spring_url_2(_jspx_page_context))
+        return;
+      out.write("\" class=\"info\">{{question.userName}}</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t\t</tbody>\r\n");
+      out.write("\t\t\t\t</table>\r\n");
+      out.write("\t\t\t<ul class=\"pagination\">\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">Prev</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">1</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">2</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">3</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">4</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">5</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t<li>\r\n");
+      out.write("\t\t\t\t\t<a href=\"#\">Next</a>\r\n");
+      out.write("\t\t\t\t</li>\r\n");
+      out.write("\t\t\t</ul>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
-      out.write("\t</tbody>\r\n");
-      out.write("</table>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<script>\r\n");
+      out.write("var mainApp = angular.module(\"mainApp\", []);\r\n");
+      out.write("\r\n");
+      out.write("mainApp.controller('indexController', function($scope, $http) {\r\n");
+      out.write("   \r\n");
+      out.write("\r\n");
+      out.write("   $scope.enableFilter = function(){\r\n");
+      out.write("\t   $scope.searchBar = false;\r\n");
+      out.write("\t   $scope.filterEnableBar = true;\r\n");
+      out.write("\t   \r\n");
+      out.write("   };\r\n");
+      out.write("   \r\n");
+      out.write("   $scope.disableFilter = function(){\r\n");
+      out.write("\t   $scope.searchBar = true;\r\n");
+      out.write("\t   $scope.filterEnableBar = false;\r\n");
+      out.write("\t   \r\n");
+      out.write("   };\r\n");
+      out.write("   \r\n");
+      out.write("   var getQuestions = function () {\r\n");
+      out.write("\t   $http({\r\n");
+      out.write("\t\t    url: '/getquestion.json',\r\n");
+      out.write("\t\t    method: 'GET',\r\n");
+      out.write("\t\t    headers: {\r\n");
+      out.write("\t\t    \t\"Content-Type\": \"application/json\"\r\n");
+      out.write("\t\t    }\r\n");
+      out.write("\t\t    }).success(function(response){\r\n");
+      out.write("\t\t        $scope.response = response;\r\n");
+      out.write("\t\t        $scope.hideQuestion = false;\r\n");
+      out.write("\t\t    }).error(function(error){\r\n");
+      out.write("\t\t        $scope.response = error;\r\n");
+      out.write("\t\t});\r\n");
+      out.write("   };\r\n");
+      out.write("  \r\n");
+      out.write("   var init = function () {\r\n");
+      out.write("\t   console.log(\"On page load\");\r\n");
+      out.write("\t   $scope.hideQuestion = true;\r\n");
+      out.write("\t   $scope.searchBar = true;\r\n");
+      out.write("\t   $scope.filterEnableBar = false;\r\n");
+      out.write("\t   getQuestions();\r\n");
+      out.write("\t};\r\n");
+      out.write("\t// and fire it after definition\r\n");
+      out.write("\tinit();\r\n");
+      out.write("   \r\n");
+      out.write("});\r\n");
+      out.write("</script>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -103,85 +249,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     }
   }
 
-  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${questions}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setVar("question");
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("\t\t\t<tr>\r\n");
-          out.write("\t\t\t\t<td> \r\n");
-          out.write("\t\t\t\t\t<strong>\r\n");
-          out.write("\t\t\t\t\t\t<a href=\"");
-          if (_jspx_meth_spring_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\">\r\n");
-          out.write("\t\t\t\t\t\t\t");
-          if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\r\n");
-          out.write("\t\t\t\t\t\t</a> \r\n");
-          out.write("\t\t\t\t\t</strong>\r\n");
-          out.write("\t\t\t\t\t<br />\r\n");
-          out.write("\t\t\t\t\t");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${question.description}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\r\n");
-          out.write("\t\t\t\t\t<br />\r\n");
-          out.write("\t\t\t\t\tOn  ");
-          if (_jspx_meth_fmt_formatDate_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write(" by\r\n");
-          out.write("\t\t\t\t\t\r\n");
-          out.write("\t\t\t\t\t<a href=\"");
-          if (_jspx_meth_spring_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\">\r\n");
-          out.write("\t\t\t\t\t");
-          if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
-            return true;
-          out.write("\r\n");
-          out.write("\t\t\t\t\t</a>\r\n");
-          out.write("\t\t\t\t</td>\r\n");
-          out.write("\t\t\t</tr>\r\n");
-          out.write("\t\t");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_spring_url_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_spring_url_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  spring:url
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_url_0 = (org.springframework.web.servlet.tags.UrlTag) _jspx_tagPool_spring_url_value_nobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_url_0.setPageContext(_jspx_page_context);
-    _jspx_th_spring_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_spring_url_0.setValue((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("/question/${question.id}.html", java.lang.String.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_spring_url_0.setParent(null);
+    _jspx_th_spring_url_0.setValue("/question/{{question.id}}.html");
     int[] _jspx_push_body_count_spring_url_0 = new int[] { 0 };
     try {
       int _jspx_eval_spring_url_0 = _jspx_th_spring_url_0.doStartTag();
@@ -199,54 +275,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${question.title}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
-    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_fmt_formatDate_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  fmt:formatDate
-    org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag _jspx_th_fmt_formatDate_0 = (org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag) _jspx_tagPool_fmt_formatDate_value_type_timeStyle_dateStyle_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatDateTag.class);
-    _jspx_th_fmt_formatDate_0.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_formatDate_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_fmt_formatDate_0.setType("both");
-    _jspx_th_fmt_formatDate_0.setValue((java.util.Date) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${question.publishedDate}", java.util.Date.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_fmt_formatDate_0.setDateStyle("short");
-    _jspx_th_fmt_formatDate_0.setTimeStyle("short");
-    int _jspx_eval_fmt_formatDate_0 = _jspx_th_fmt_formatDate_0.doStartTag();
-    if (_jspx_th_fmt_formatDate_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_formatDate_value_type_timeStyle_dateStyle_nobody.reuse(_jspx_th_fmt_formatDate_0);
-      return true;
-    }
-    _jspx_tagPool_fmt_formatDate_value_type_timeStyle_dateStyle_nobody.reuse(_jspx_th_fmt_formatDate_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_spring_url_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_spring_url_1(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  spring:url
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_url_1 = (org.springframework.web.servlet.tags.UrlTag) _jspx_tagPool_spring_url_value_nobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_url_1.setPageContext(_jspx_page_context);
-    _jspx_th_spring_url_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_spring_url_1.setValue((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("/users/${question.user.id}.html", java.lang.String.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_spring_url_1.setParent(null);
+    _jspx_th_spring_url_1.setValue("/tag/{{question.tagId}}.html");
     int[] _jspx_push_body_count_spring_url_1 = new int[] { 0 };
     try {
       int _jspx_eval_spring_url_1 = _jspx_th_spring_url_1.doStartTag();
@@ -264,21 +301,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_c_out_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+  private boolean _jspx_meth_spring_url_2(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_1 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
-    _jspx_th_c_out_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${question.user.name}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_1 = _jspx_th_c_out_1.doStartTag();
-    if (_jspx_th_c_out_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
-      return true;
+    //  spring:url
+    org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_url_2 = (org.springframework.web.servlet.tags.UrlTag) _jspx_tagPool_spring_url_value_nobody.get(org.springframework.web.servlet.tags.UrlTag.class);
+    _jspx_th_spring_url_2.setPageContext(_jspx_page_context);
+    _jspx_th_spring_url_2.setParent(null);
+    _jspx_th_spring_url_2.setValue("/users/{{question.userId}}.html");
+    int[] _jspx_push_body_count_spring_url_2 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_url_2 = _jspx_th_spring_url_2.doStartTag();
+      if (_jspx_th_spring_url_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_url_2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_url_2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_url_2.doFinally();
+      _jspx_tagPool_spring_url_value_nobody.reuse(_jspx_th_spring_url_2);
     }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
     return false;
   }
 }

@@ -28,7 +28,7 @@ public class Comment {
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name="question_id")
+	@JoinColumn(name="question_id") 
 	private Question question;
 
 	public Integer getId() {
