@@ -110,7 +110,7 @@
           </button>
           <a class="" href="<spring:url value="/" />"><span class="navbar-brand"><span class="fa fa-paper-plane"></span> Null Pointer</span></a></div>
 		
-		 <security:authorize access="isAuthenticated()">
+		
         <div class="navbar-collapse collapse" style="height: 1px;">
           <ul id="main-menu" class="nav navbar-nav navbar-right">
             <li class="dropdown hidden-xs">
@@ -119,21 +119,25 @@
                     <i class="fa fa-caret-down"></i>
                 </a>
               <ul class="dropdown-menu">
+                 <security:authorize access="isAuthenticated()">
                 <li><a href="<spring:url value="/account.html" />">My Account</a></li>
+                 </security:authorize>
                 <li class="divider"></li>
                 <li class="dropdown-header">Admin Panel</li>
                 <li><a href="./">Users</a></li>
                 <li><a href="./">Security</a></li>
                 <li><a tabindex="-1" href="./">Payments</a></li>
                 <li class="divider"></li>
+                <security:authorize access="isAuthenticated()">
                 <li><a tabindex="-1" href="<spring:url value="/logout" />">Logout</a></li>
+                </security:authorize>
               </ul>
               
             </li>
           </ul>
 
         </div>
-        </security:authorize>
+       
       </div>
     </div>
     
