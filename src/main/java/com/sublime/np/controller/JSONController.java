@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sublime.np.bean.QuestionBean;
 import com.sublime.np.converter.EntityToBeanConverter;
+import com.sublime.np.entity.Comment;
 import com.sublime.np.entity.Question;
 import com.sublime.np.entity.Shop;
 import com.sublime.np.entity.User;
@@ -65,6 +68,13 @@ public class JSONController {
 			questionbeans.add(questionBean);
 		}
 		return questionbeans;
+	}
+	
+	@RequestMapping(value = "postcomment",method = RequestMethod.POST)
+	@ResponseBody public Object postForm(@RequestBody Comment comment) {
+		System.out.println("Hello"+" "+comment.getCommentText());
+		
+		return comment;
 	}
 
 }
