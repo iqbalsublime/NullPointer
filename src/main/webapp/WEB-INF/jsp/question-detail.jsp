@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp"%>
-
+<div ng-app="mainApp" ng-controller="questionDetailsController">
 
 <div class="container">
 	<div class="row clearfix">
@@ -10,6 +10,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						<c:out value="${question.title}" />
+						<input type="hidden" data-ng-model="ques" value="${question.id}">
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -64,27 +65,29 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-11 column">
-			<div class="row clearfix">
-			 	<form:form commandName="comment" cssClass="form-horizontal ">
+			<div class="row clearfix" ng-hide="commentStatus">
 						<div class="col-md-2 column">
+						</div>
+						<div class="col-md-10 column">
+							<div class="alert alert-success">{{commentmgs}}</div>
+						</div>
 						
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-11 column">
+			<div class="row clearfix">
+						<div class="col-md-2 column">
 						</div>
 						<div class="col-md-8 column">
-									    <c:if test="${param.success eq true}">
-											<div class="alert alert-success">Answer posted successfull!</div>
-										</c:if> 
-										
 										<div class="form-group">
-											<div >
-												<form:input path="commentText" cssClass="form-control"  placeholder="Add new Comment"/>
-												<form:errors path="commentText"/>
-											</div>
+											 	<input data-ng-model="comment.commentText" type="text" placeholder="Add Comment" Class="form-control">
 										</div>
 						</div>
 						<div class="col-md-2 column">
-							  <input type="submit" value="Add" class="btn btn-success">
+							  <input type="button" value="Add" class="btn btn-success" data-ng-click="submit()">
 						</div>
-				</form:form>
 			</div>
 		</div>
 	</div>
@@ -147,7 +150,50 @@ No Answer for this Question!
 		      </div>
   </form:form>
   
+ </div>
+ 
+ <script>
+var mainApp = angular.module("mainApp", []);
+
+mainApp.controller('questionDetailsController', function($scope, $http) {
+   
+	 $scope.comment = {}; 
+   		
+	 $scope.submit = function(){
+		 console.log($scope.comment);
+		 console.log($scope.ques);
+		  $http({
+		      method: 'POST', url: '/postcomment.json',
+		      data: $scope.comment
+		    }).
+		      success(function(data, status, headers, config) {
+		    	  $scope.commentStatus = false;
+		    	  $scope.commentmgs = 'Comment posted successfull!';
+		    	  $scope.comment = {}; 
+		    	/*   $window.location.replace('./confirm.html'); */
+		      }).
+		      error(function(data, status, headers, config) {
+		        if(status == 400) {
+		          $scope.messages = data;
+		          $scope.commentStatus = false;
+		          $scope.commentmgs = 'Unable to post Comment! ';
+		        } else {
+		        	 $scope.commentStatus = false;
+		        	 $scope.commentmgs = 'Unexpected server error. ';
+		        }
+		      }); 
+	   };
   
+   var init = function () {
+	   console.log("On page load");
+	   $scope.commentStatus = true;
+	};
+	// and fire it after definition
+	init();
+   
+});
+</script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	
@@ -167,7 +213,6 @@ $(document).ready(function() {
 				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
 			}
 		}
-	}
 	);
 });
 </script>

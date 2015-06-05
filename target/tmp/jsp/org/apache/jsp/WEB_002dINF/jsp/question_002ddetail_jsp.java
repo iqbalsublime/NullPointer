@@ -23,7 +23,6 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_textarea_path_cssClass_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_errors_path_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_input_placeholder_path_cssClass_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_form_form_cssClass_commandName;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -40,7 +39,6 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     _jspx_tagPool_form_textarea_path_cssClass_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_errors_path_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_form_input_placeholder_path_cssClass_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_form_form_cssClass_commandName = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
@@ -52,7 +50,6 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     _jspx_tagPool_form_textarea_path_cssClass_nobody.release();
     _jspx_tagPool_c_if_test.release();
     _jspx_tagPool_form_errors_path_nobody.release();
-    _jspx_tagPool_form_input_placeholder_path_cssClass_nobody.release();
     _jspx_tagPool_form_form_cssClass_commandName.release();
   }
 
@@ -89,7 +86,7 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       out.write("\n");
       out.write("\n");
       out.write("\r\n");
-      out.write("\r\n");
+      out.write("<div ng-app=\"mainApp\" ng-controller=\"questionDetailsController\">\r\n");
       out.write("\r\n");
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
@@ -101,6 +98,9 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
       out.write("\r\n");
+      out.write("\t\t\t\t\t\t<input type=\"hidden\" data-ng-model=\"ques\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${question.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\r\n");
       out.write("\t\t\t\t\t</h3>\r\n");
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t<div class=\"panel-body\">\r\n");
@@ -172,41 +172,76 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       out.write("<div class=\"container\">\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t<div class=\"col-md-11 column\">\r\n");
+      out.write("\t\t\t<div class=\"row clearfix\" ng-hide=\"commentStatus\">\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"col-md-10 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t<div class=\"alert alert-success\">{{commentmgs}}</div>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("\t<div class=\"row clearfix\">\r\n");
+      out.write("\t\t<div class=\"col-md-11 column\">\r\n");
       out.write("\t\t\t<div class=\"row clearfix\">\r\n");
-      out.write("\t\t\t \t");
+      out.write("\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"col-md-8 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t \t<input data-ng-model=\"comment.commentText\" type=\"text\" placeholder=\"Add Comment\" Class=\"form-control\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
+      out.write("\t\t\t\t\t\t\t  <input type=\"button\" value=\"Add\" class=\"btn btn-success\" data-ng-click=\"submit()\">\r\n");
+      out.write("\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t</div>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("<br/>\r\n");
+      out.write("\r\n");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write(" \t\r\n");
+      out.write("\r\n");
+      if (_jspx_meth_c_if_1(_jspx_page_context))
+        return;
+      out.write(" \r\n");
+      out.write("\r\n");
+      out.write(" ");
       //  form:form
       org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_form_0 = (org.springframework.web.servlet.tags.form.FormTag) _jspx_tagPool_form_form_cssClass_commandName.get(org.springframework.web.servlet.tags.form.FormTag.class);
       _jspx_th_form_form_0.setPageContext(_jspx_page_context);
       _jspx_th_form_form_0.setParent(null);
-      _jspx_th_form_form_0.setCommandName("comment");
-      _jspx_th_form_form_0.setCssClass("form-horizontal ");
+      _jspx_th_form_form_0.setCommandName("answer");
+      _jspx_th_form_form_0.setCssClass("form-horizontal answerForm");
       int[] _jspx_push_body_count_form_form_0 = new int[] { 0 };
       try {
         int _jspx_eval_form_form_0 = _jspx_th_form_form_0.doStartTag();
         if (_jspx_eval_form_form_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
             out.write("\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
-            out.write("\t\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"col-md-8 column\">\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t    ");
-            if (_jspx_meth_c_if_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
+            out.write("  \r\n");
+            out.write("\t\t    ");
+            if (_jspx_meth_c_if_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
               return;
             out.write(" \r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t\t<div >\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t\t\t");
-            if (_jspx_meth_form_input_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
+            out.write("\t\t\t\r\n");
+            out.write("\t\t\t<div class=\"form-group\">\r\n");
+            out.write("\t\t\t\t<label for=\"description\" class=\"col-sm-2 control-label\">Your Answer:</label>\r\n");
+            out.write("\t\t\t\t<div class=\"col-sm-10\">\r\n");
+            out.write("\t\t\t\t\t");
+            if (_jspx_meth_form_textarea_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_0, _jspx_page_context, _jspx_push_body_count_form_form_0))
               return;
             out.write("\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t\t\t");
+            out.write("\t\t\t\t\t");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_errors_0 = (org.springframework.web.servlet.tags.form.ErrorsTag) _jspx_tagPool_form_errors_path_nobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_errors_0.setPageContext(_jspx_page_context);
             _jspx_th_form_errors_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
-            _jspx_th_form_errors_0.setPath("commentText");
+            _jspx_th_form_errors_0.setPath("description");
             int[] _jspx_push_body_count_form_errors_0 = new int[] { 0 };
             try {
               int _jspx_eval_form_errors_0 = _jspx_th_form_errors_0.doStartTag();
@@ -222,13 +257,13 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
               _jspx_tagPool_form_errors_path_nobody.reuse(_jspx_th_form_errors_0);
             }
             out.write("\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"col-md-2 column\">\r\n");
-            out.write("\t\t\t\t\t\t\t  <input type=\"submit\" value=\"Add\" class=\"btn btn-success\">\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t");
+            out.write("\t\t\t\t</div>\r\n");
+            out.write("\t\t\t</div>\r\n");
+            out.write("\t\t\t <div class=\"modal-footer\">\r\n");
+            out.write("\t\t      <!--   <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button> -->\r\n");
+            out.write("\t\t        <input type=\"submit\" value=\"Save\" class=\"btn btn-success\">\r\n");
+            out.write("\t\t      </div>\r\n");
+            out.write("  ");
             int evalDoAfterBody = _jspx_th_form_form_0.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
               break;
@@ -246,94 +281,51 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
         _jspx_tagPool_form_form_cssClass_commandName.reuse(_jspx_th_form_form_0);
       }
       out.write("\r\n");
-      out.write("\t\t\t</div>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t</div>\r\n");
-      out.write("</div>\r\n");
-      out.write("\r\n");
-      out.write("<br/>\r\n");
-      out.write("\r\n");
-      if (_jspx_meth_c_if_1(_jspx_page_context))
-        return;
-      out.write(" \t\r\n");
-      out.write("\r\n");
-      if (_jspx_meth_c_if_2(_jspx_page_context))
-        return;
+      out.write("  \r\n");
+      out.write(" </div>\r\n");
       out.write(" \r\n");
+      out.write(" <script>\r\n");
+      out.write("var mainApp = angular.module(\"mainApp\", []);\r\n");
       out.write("\r\n");
-      out.write(" ");
-      //  form:form
-      org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_form_1 = (org.springframework.web.servlet.tags.form.FormTag) _jspx_tagPool_form_form_cssClass_commandName.get(org.springframework.web.servlet.tags.form.FormTag.class);
-      _jspx_th_form_form_1.setPageContext(_jspx_page_context);
-      _jspx_th_form_form_1.setParent(null);
-      _jspx_th_form_form_1.setCommandName("answer");
-      _jspx_th_form_form_1.setCssClass("form-horizontal answerForm");
-      int[] _jspx_push_body_count_form_form_1 = new int[] { 0 };
-      try {
-        int _jspx_eval_form_form_1 = _jspx_th_form_form_1.doStartTag();
-        if (_jspx_eval_form_form_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-          do {
-            out.write("\r\n");
-            out.write("  \r\n");
-            out.write("\t\t    ");
-            if (_jspx_meth_c_if_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_1, _jspx_page_context, _jspx_push_body_count_form_form_1))
-              return;
-            out.write(" \r\n");
-            out.write("\t\t\t\r\n");
-            out.write("\t\t\t<div class=\"form-group\">\r\n");
-            out.write("\t\t\t\t<label for=\"description\" class=\"col-sm-2 control-label\">Your Answer:</label>\r\n");
-            out.write("\t\t\t\t<div class=\"col-sm-10\">\r\n");
-            out.write("\t\t\t\t\t");
-            if (_jspx_meth_form_textarea_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_form_form_1, _jspx_page_context, _jspx_push_body_count_form_form_1))
-              return;
-            out.write("\r\n");
-            out.write("\t\t\t\t\t");
-            //  form:errors
-            org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_errors_1 = (org.springframework.web.servlet.tags.form.ErrorsTag) _jspx_tagPool_form_errors_path_nobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
-            _jspx_th_form_errors_1.setPageContext(_jspx_page_context);
-            _jspx_th_form_errors_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_1);
-            _jspx_th_form_errors_1.setPath("description");
-            int[] _jspx_push_body_count_form_errors_1 = new int[] { 0 };
-            try {
-              int _jspx_eval_form_errors_1 = _jspx_th_form_errors_1.doStartTag();
-              if (_jspx_th_form_errors_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                return;
-              }
-            } catch (Throwable _jspx_exception) {
-              while (_jspx_push_body_count_form_errors_1[0]-- > 0)
-                out = _jspx_page_context.popBody();
-              _jspx_th_form_errors_1.doCatch(_jspx_exception);
-            } finally {
-              _jspx_th_form_errors_1.doFinally();
-              _jspx_tagPool_form_errors_path_nobody.reuse(_jspx_th_form_errors_1);
-            }
-            out.write("\r\n");
-            out.write("\t\t\t\t</div>\r\n");
-            out.write("\t\t\t</div>\r\n");
-            out.write("\t\t\t <div class=\"modal-footer\">\r\n");
-            out.write("\t\t      <!--   <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button> -->\r\n");
-            out.write("\t\t        <input type=\"submit\" value=\"Save\" class=\"btn btn-success\">\r\n");
-            out.write("\t\t      </div>\r\n");
-            out.write("  ");
-            int evalDoAfterBody = _jspx_th_form_form_1.doAfterBody();
-            if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-              break;
-          } while (true);
-        }
-        if (_jspx_th_form_form_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-          return;
-        }
-      } catch (Throwable _jspx_exception) {
-        while (_jspx_push_body_count_form_form_1[0]-- > 0)
-          out = _jspx_page_context.popBody();
-        _jspx_th_form_form_1.doCatch(_jspx_exception);
-      } finally {
-        _jspx_th_form_form_1.doFinally();
-        _jspx_tagPool_form_form_cssClass_commandName.reuse(_jspx_th_form_form_1);
-      }
+      out.write("mainApp.controller('questionDetailsController', function($scope, $http) {\r\n");
+      out.write("   \r\n");
+      out.write("\t $scope.comment = {}; \r\n");
+      out.write("   \t\t\r\n");
+      out.write("\t $scope.submit = function(){\r\n");
+      out.write("\t\t console.log($scope.comment);\r\n");
+      out.write("\t\t console.log($scope.ques);\r\n");
+      out.write("\t\t  $http({\r\n");
+      out.write("\t\t      method: 'POST', url: '/postcomment.json',\r\n");
+      out.write("\t\t      data: $scope.comment\r\n");
+      out.write("\t\t    }).\r\n");
+      out.write("\t\t      success(function(data, status, headers, config) {\r\n");
+      out.write("\t\t    \t  $scope.commentStatus = false;\r\n");
+      out.write("\t\t    \t  $scope.commentmgs = 'Comment posted successfull!';\r\n");
+      out.write("\t\t    \t  $scope.comment = {}; \r\n");
+      out.write("\t\t    \t/*   $window.location.replace('./confirm.html'); */\r\n");
+      out.write("\t\t      }).\r\n");
+      out.write("\t\t      error(function(data, status, headers, config) {\r\n");
+      out.write("\t\t        if(status == 400) {\r\n");
+      out.write("\t\t          $scope.messages = data;\r\n");
+      out.write("\t\t          $scope.commentStatus = false;\r\n");
+      out.write("\t\t          $scope.commentmgs = 'Unable to post Comment! ';\r\n");
+      out.write("\t\t        } else {\r\n");
+      out.write("\t\t        \t $scope.commentStatus = false;\r\n");
+      out.write("\t\t        \t $scope.commentmgs = 'Unexpected server error. ';\r\n");
+      out.write("\t\t        }\r\n");
+      out.write("\t\t      }); \r\n");
+      out.write("\t   };\r\n");
+      out.write("  \r\n");
+      out.write("   var init = function () {\r\n");
+      out.write("\t   console.log(\"On page load\");\r\n");
+      out.write("\t   $scope.commentStatus = true;\r\n");
+      out.write("\t};\r\n");
+      out.write("\t// and fire it after definition\r\n");
+      out.write("\tinit();\r\n");
+      out.write("   \r\n");
+      out.write("});\r\n");
+      out.write("</script>\r\n");
       out.write("\r\n");
-      out.write("  \r\n");
-      out.write("  \r\n");
       out.write("<script type=\"text/javascript\">\r\n");
       out.write("$(document).ready(function() {\r\n");
       out.write("\t\r\n");
@@ -353,7 +345,6 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
       out.write("\t\t\t\t$(element).closest('.form-group').removeClass('has-error').addClass('has-success');\r\n");
       out.write("\t\t\t}\r\n");
       out.write("\t\t}\r\n");
-      out.write("\t}\r\n");
       out.write("\t);\r\n");
       out.write("});\r\n");
       out.write("</script>\r\n");
@@ -575,21 +566,20 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_c_if_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:if
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
-    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.success eq true}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${empty question.answers}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"alert alert-success\">Answer posted successfull!</div>\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t\t");
+        out.write("No Answer for this Question! \r\n");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -603,34 +593,6 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_form_input_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  form:input
-    org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_input_0 = (org.springframework.web.servlet.tags.form.InputTag) _jspx_tagPool_form_input_placeholder_path_cssClass_nobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
-    _jspx_th_form_input_0.setPageContext(_jspx_page_context);
-    _jspx_th_form_input_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
-    _jspx_th_form_input_0.setPath("commentText");
-    _jspx_th_form_input_0.setCssClass("form-control");
-    _jspx_th_form_input_0.setDynamicAttribute(null, "placeholder", new String("Add new Comment"));
-    int[] _jspx_push_body_count_form_input_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_form_input_0 = _jspx_th_form_input_0.doStartTag();
-      if (_jspx_th_form_input_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_form_input_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_form_input_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_form_input_0.doFinally();
-      _jspx_tagPool_form_input_placeholder_path_cssClass_nobody.reuse(_jspx_th_form_input_0);
-    }
-    return false;
-  }
-
   private boolean _jspx_meth_c_if_1(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -639,12 +601,17 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_1.setPageContext(_jspx_page_context);
     _jspx_th_c_if_1.setParent(null);
-    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${empty question.answers}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${not empty question.answers}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_1 = _jspx_th_c_if_1.doStartTag();
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("No Answer for this Question! \r\n");
+        out.write("\t\t\r\n");
+        out.write("\tANSWER\r\n");
+        out.write("\t");
+        if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_1, _jspx_page_context))
+          return true;
+        out.write('\r');
+        out.write('\n');
         int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -658,46 +625,14 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_c_if_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_2.setParent(null);
-    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${not empty question.answers}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
-    if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\t\t\r\n");
-        out.write("\tANSWER\r\n");
-        out.write("\t");
-        if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_if_2, _jspx_page_context))
-          return true;
-        out.write('\r');
-        out.write('\n');
-        int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
-      return true;
-    }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_2, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_if_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_2);
+    _jspx_th_c_forEach_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_if_1);
     _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${question.answers}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     _jspx_th_c_forEach_1.setVar("answer");
     int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
@@ -868,42 +803,42 @@ public final class question_002ddetail_jsp extends org.apache.jasper.runtime.Htt
     return false;
   }
 
-  private boolean _jspx_meth_c_if_3(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_1)
+  private boolean _jspx_meth_c_if_2(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_3 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_if_3.setPageContext(_jspx_page_context);
-    _jspx_th_c_if_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_1);
-    _jspx_th_c_if_3.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.success eq true}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_if_3 = _jspx_th_c_if_3.doStartTag();
-    if (_jspx_eval_c_if_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
+    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.success eq true}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
+    if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
         out.write("\t\t\t\t<div class=\"alert alert-success\">Answer posted successfull!</div>\r\n");
         out.write("\t\t\t");
-        int evalDoAfterBody = _jspx_th_c_if_3.doAfterBody();
+        int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
       } while (true);
     }
-    if (_jspx_th_c_if_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+    if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
       return true;
     }
-    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
     return false;
   }
 
-  private boolean _jspx_meth_form_textarea_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_1)
+  private boolean _jspx_meth_form_textarea_0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_form_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_form_0)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  form:textarea
     org.springframework.web.servlet.tags.form.TextareaTag _jspx_th_form_textarea_0 = (org.springframework.web.servlet.tags.form.TextareaTag) _jspx_tagPool_form_textarea_path_cssClass_nobody.get(org.springframework.web.servlet.tags.form.TextareaTag.class);
     _jspx_th_form_textarea_0.setPageContext(_jspx_page_context);
-    _jspx_th_form_textarea_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_1);
+    _jspx_th_form_textarea_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_form_0);
     _jspx_th_form_textarea_0.setPath("description");
     _jspx_th_form_textarea_0.setCssClass("form-control");
     int[] _jspx_push_body_count_form_textarea_0 = new int[] { 0 };
