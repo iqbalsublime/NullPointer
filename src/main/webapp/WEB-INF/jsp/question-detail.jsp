@@ -170,7 +170,7 @@ mainApp.controller('questionDetailsController', function($scope, $http) {
 		    	  $scope.commentStatus = false;
 		    	  $scope.commentmgs = 'Comment posted successfull!';
 		    	  $scope.comment = {}; 
-		    	/*   $window.location.replace('./confirm.html'); */
+		    	  $window.location.replace('./question/{id}.html'); 
 		      }).
 		      error(function(data, status, headers, config) {
 		        if(status == 400) {
