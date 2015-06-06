@@ -68,6 +68,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<div ng-app=\"mainApp\" ng-controller=\"indexController\">\r\n");
       out.write("<div class=\"container\">\r\n");
+      out.write("\t<a data-ng-click=\"getData()\">Get Data</a>\r\n");
       out.write("\t<div class=\"row clearfix\">\r\n");
       out.write("\t\t<div class=\"col-md-12 column\">\r\n");
       out.write("\t\t\t\r\n");
@@ -195,6 +196,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("var mainApp = angular.module(\"mainApp\", []);\r\n");
       out.write("\r\n");
       out.write("mainApp.controller('indexController', function($scope, $http) {\r\n");
+      out.write("\t\r\n");
+      out.write("\t$scope.getData = function(){ \r\n");
+      out.write("\t\t$http({\r\n");
+      out.write("\t\t    url: '/getallquestion.json',\r\n");
+      out.write("\t\t    method: 'GET',\r\n");
+      out.write("\t\t    headers: {\r\n");
+      out.write("\t\t    \t\"Content-Type\": \"application/json\"\r\n");
+      out.write("\t\t    }\r\n");
+      out.write("\t\t    }).success(function(response){\r\n");
+      out.write("\t\t        console.log(response);\r\n");
+      out.write("\t\t    }).error(function(error){\r\n");
+      out.write("\t\t        $scope.s = error;\r\n");
+      out.write("\t\t});\r\n");
+      out.write("\t};\r\n");
       out.write("   \r\n");
       out.write("\r\n");
       out.write("   $scope.enableFilter = function(){\r\n");

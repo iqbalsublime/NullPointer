@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sublime.np.bean.QuestionBean;
+import com.sublime.np.bean.ResponseBean;
 import com.sublime.np.converter.EntityToBeanConverter;
 import com.sublime.np.entity.Comment;
 import com.sublime.np.entity.Question;
@@ -68,6 +69,20 @@ public class JSONController {
 			questionbeans.add(questionBean);
 		}
 		return questionbeans;
+	}
+	
+	@RequestMapping(value = "getallquestion", method = RequestMethod.GET)
+	public @ResponseBody ResponseBean getAllQuestion() {
+		ResponseBean resBean = new ResponseBean();
+		List<Question> questions = questionService.getAll();
+		List<QuestionBean> questionbeans = new ArrayList<QuestionBean>();
+		for (Question question : questions) {
+			QuestionBean questionBean = new QuestionBean();
+			questionBean = EntityToBeanConverter.convertQuestionIntoToBean(question);
+			questionbeans.add(questionBean);
+		}
+		resBean.setData(questionbeans);
+		return resBean;
 	}
 	
 	@RequestMapping(value = "postcomment",method = RequestMethod.POST)
