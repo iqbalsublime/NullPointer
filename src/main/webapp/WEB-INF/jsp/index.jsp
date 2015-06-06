@@ -5,6 +5,7 @@
 
 <div ng-app="mainApp" ng-controller="indexController">
 <div class="container">
+	<a data-ng-click="getData()">Get Data</a>
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			
@@ -150,6 +151,20 @@
 var mainApp = angular.module("mainApp", []);
 
 mainApp.controller('indexController', function($scope, $http) {
+	
+	$scope.getData = function(){ 
+		$http({
+		    url: '/getallquestion.json',
+		    method: 'GET',
+		    headers: {
+		    	"Content-Type": "application/json"
+		    }
+		    }).success(function(response){
+		        console.log(response);
+		    }).error(function(error){
+		        $scope.s = error;
+		});
+	};
    
 
    $scope.enableFilter = function(){
