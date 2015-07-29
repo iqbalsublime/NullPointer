@@ -122,7 +122,7 @@
             <option value="1000">1000</option>
         </select>
 </div>
-<div ag-grid="gridOptions" class="ag-fresh" style="height: 100%;"></div>
+<div ag-grid="gridOptions" class="ag-dark" style="height: 100%;"></div>
 
 
 <%-- <table class="table table-bordered table-hover table-striped">
@@ -161,7 +161,7 @@ var mainApp = angular.module("mainApp", ["angularGrid"]);
 
 mainApp.controller('indexController', function($scope, $http) {
 	
-	$scope.pageSize = '500';
+	$scope.pageSize = '10';
 	
 	var columnDefs = [	// this row just shows the row index, doesn't use any data from the row
 	                    {headerName: "#", width: 50, cellRenderer: function(params) {
@@ -197,6 +197,9 @@ mainApp.controller('indexController', function($scope, $http) {
 
 	                $scope.gridOptions = {
 	                        columnDefs: columnDefs,
+	                        enableSorting: true,
+	                        enableFilter: true,
+	                        enableColResize: true,
 	                        rowData: rowData,
 	                        dontUseScrolls: true // because so little data, no need to use scroll bars
 	                    };

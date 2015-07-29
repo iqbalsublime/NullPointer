@@ -194,7 +194,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <option value=\"1000\">1000</option>\r\n");
       out.write("        </select>\r\n");
       out.write("</div>\r\n");
-      out.write("<div ag-grid=\"gridOptions\" class=\"ag-fresh\" style=\"height: 100%;\"></div>\r\n");
+      out.write("<div ag-grid=\"gridOptions\" class=\"ag-dark\" style=\"height: 100%;\"></div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -206,7 +206,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("mainApp.controller('indexController', function($scope, $http) {\r\n");
       out.write("\t\r\n");
-      out.write("\t$scope.pageSize = '500';\r\n");
+      out.write("\t$scope.pageSize = '10';\r\n");
       out.write("\t\r\n");
       out.write("\tvar columnDefs = [\t// this row just shows the row index, doesn't use any data from the row\r\n");
       out.write("\t                    {headerName: \"#\", width: 50, cellRenderer: function(params) {\r\n");
@@ -242,6 +242,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t                $scope.gridOptions = {\r\n");
       out.write("\t                        columnDefs: columnDefs,\r\n");
+      out.write("\t                        enableSorting: true,\r\n");
+      out.write("\t                        enableFilter: true,\r\n");
+      out.write("\t                        enableColResize: true,\r\n");
       out.write("\t                        rowData: rowData,\r\n");
       out.write("\t                        dontUseScrolls: true // because so little data, no need to use scroll bars\r\n");
       out.write("\t                    };\r\n");
