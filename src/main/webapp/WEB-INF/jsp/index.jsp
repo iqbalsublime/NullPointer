@@ -112,8 +112,17 @@
 	</div>
 </div>
 
-
-
+<h1>Angular Grid </h1>
+<div style="height: 6%;">
+        Page Size:
+        <select ng-model="pageSize" ng-change="onPageSizeChanged()">
+            <option value="10">10</option>
+            <option value="100">100</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+        </select>
+</div>
+<div ag-grid="gridOptions" class="ag-fresh" style="height: 100%;"></div>
 
 
 <%-- <table class="table table-bordered table-hover table-striped">
@@ -148,9 +157,50 @@
 
 
 <script>
-var mainApp = angular.module("mainApp", []);
+var mainApp = angular.module("mainApp", ["angularGrid"]);
 
 mainApp.controller('indexController', function($scope, $http) {
+	
+	$scope.pageSize = '500';
+	
+	var columnDefs = [	// this row just shows the row index, doesn't use any data from the row
+	                    {headerName: "#", width: 50, cellRenderer: function(params) {
+	                        return params.node.id + 1;
+	                    } },
+	                    {headerName: "Athlete", field: "athlete", width: 150},
+	                    {headerName: "Age", field: "age", width: 90},
+	                    {headerName: "Country", field: "country", width: 120},
+	                    {headerName: "Year", field: "year", width: 90},
+	                    {headerName: "Date", field: "date", width: 110},
+	                    {headerName: "Sport", field: "sport", width: 110},
+	                    {headerName: "Gold", field: "gold", width: 100},
+	                    {headerName: "Silver", field: "silver", width: 100},
+	                    {headerName: "Bronze", field: "bronze", width: 100},
+	                    {headerName: "Total", field: "total", width: 100}
+
+	                ];
+
+	                var rowData = [
+						 {"athlete":"Michael Phelps","age":23,"country":"United States","year":2008,"date":"24/08/2008","sport":"Swimming","gold":8,"silver":0,"bronze":0,"total":8},
+						 {"athlete":"Michael Phelps","age":19,"country":"United States","year":2004,"date":"29/08/2004","sport":"Swimming","gold":6,"silver":0,"bronze":2,"total":8},
+						 {"athlete":"Michael Phelps","age":27,"country":"United States","year":2012,"date":"12/08/2012","sport":"Swimming","gold":4,"silver":2,"bronze":0,"total":6},
+						 {"athlete":"Natalie Coughlin","age":25,"country":"United States","year":2008,"date":"24/08/2008","sport":"Swimming","gold":1,"silver":2,"bronze":3,"total":6},
+						 {"athlete":"Aleksey Nemov","age":24,"country":"Russia","year":2000,"date":"01/10/2000","sport":"Gymnastics","gold":2,"silver":1,"bronze":3,"total":6},
+						 {"athlete":"Alicia Coutts","age":24,"country":"Australia","year":2012,"date":"12/08/2012","sport":"Swimming","gold":1,"silver":3,"bronze":1,"total":5},
+						 {"athlete":"Missy Franklin","age":17,"country":"United States","year":2012,"date":"12/08/2012","sport":"Swimming","gold":4,"silver":0,"bronze":1,"total":5},
+						 {"athlete":"Ryan Lochte","age":27,"country":"United States","year":2012,"date":"12/08/2012","sport":"Swimming","gold":2,"silver":2,"bronze":1,"total":5},
+						 {"athlete":"Allison Schmitt","age":22,"country":"United States","year":2012,"date":"12/08/2012","sport":"Swimming","gold":3,"silver":1,"bronze":1,"total":5},
+						 {"athlete":"Natalie Coughlin","age":21,"country":"United States","year":2004,"date":"29/08/2004","sport":"Swimming","gold":2,"silver":2,"bronze":1,"total":5},
+						 {"athlete":"Ian Thorpe","age":17,"country":"Australia","year":2000,"date":"01/10/2000","sport":"Swimming","gold":3,"silver":2,"bronze":0,"total":5},
+						 {"athlete":"Dara Torres","age":33,"country":"United States","year":2000,"date":"01/10/2000","sport":"Swimming","gold":2,"silver":0,"bronze":3,"total":5}
+	                ];
+
+	                $scope.gridOptions = {
+	                        columnDefs: columnDefs,
+	                        rowData: rowData,
+	                        dontUseScrolls: true // because so little data, no need to use scroll bars
+	                    };
+
 	
 	$scope.getData = function(){ 
 		$http({
@@ -199,6 +249,7 @@ mainApp.controller('indexController', function($scope, $http) {
 	   $scope.hideQuestion = true;
 	   $scope.searchBar = true;
 	   $scope.filterEnableBar = false;
+
 	   getQuestions();
 	};
 	// and fire it after definition
